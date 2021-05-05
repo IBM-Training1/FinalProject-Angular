@@ -1,7 +1,7 @@
 #hero {
   width: 100%;
   position: relative;
-  background: url("../img/hero-bg.png") center bottom no-repeat;
+  /* background: url("../") center bottom no-repeat; */
   background-size: cover;
   padding: 200px 0 120px 0;
 }
