@@ -18,8 +18,16 @@
       <div class="hero-info" data-aos="zoom-in" data-aos-delay="100">
         <h2>Welcome to the<br><span>IBM Bank</span><br>Services!</h2>
         <div>
-          <a href="forms/employee-login.php" class="btn-get-started scrollto">Employee Login</a>
-          <a href="forms/manager-login.php" class="btn-services scrollto">Manager Login</a>
+          <a href="" class="btn-get-started scrollto" routerLink="/login" routerLinkActive="active">Employee Login</a>
+          <div class="dropdown">
+            <button class="dropbtn">Customer Login</button>
+            <div class="dropdown-content">
+              <a href="#"  routerLink="/createaccount" routerLinkActive="active">New User</a>
+              <a href="#" routerLink="/login" routerLinkActive="active">Existing User</a>
+
+</div>
+          </div>
+
         </div>
       </div>
 
