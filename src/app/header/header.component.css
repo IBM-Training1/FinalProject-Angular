@@ -1,18 +1,21 @@
 .navbar-brand{
   background-color: rgb(250, 250, 250);
-  height: 75px;
-  color: rgb(34, 40, 133);
-  padding-top: 18px;
+  height: 50px;
+  color: #0450a0;
+  font-size: xx-large;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+
 }
 
 b{
-  font-size: xx-large;
+  font-size: medium;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .navbar-toggler {
-  border-color: rgb(22, 13, 160);
+  border-color: #0450a0;
 }
 
 .navbar-toggler:focus {
@@ -24,7 +27,7 @@ b{
   width: 20px;
   height: 20px;
   margin: 6px auto;
-  background: #fff;
+  background:#0450a0;
   transition: all .6s cubic-bezier(0.250, 0.100, 0.250, 1.000);
 }
 
