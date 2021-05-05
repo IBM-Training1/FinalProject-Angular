@@ -8,8 +8,14 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { HelpComponent } from './help/help.component';
+import { LoginComponent } from './login/login.component';
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent }
+  { path: '', component: HomeComponent },
+  {path:'About', component:AboutUsComponent},
+  {path:'Help', component:HelpComponent},
+  {path:'login',component:LoginComponent}
 ];
 
 @NgModule({
@@ -17,7 +23,10 @@ const appRoutes: Routes = [
     AppComponent,
     FooterComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    AboutUsComponent,
+    HelpComponent,
+    LoginComponent
   ],
   imports: [RouterModule.forRoot(
     appRoutes,

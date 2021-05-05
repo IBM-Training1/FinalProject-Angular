@@ -1,0 +1,28 @@
+
+<div id="formWrapper">
+<div id="form">
+  <div class="logo">
+    <h1 class="text-center head">Welcome Back!</h1>
+  </div>
+
+  <form action="../backend/authenticate.php" method="post">
+    <div class="form-item">
+      <label class="formLabel">Email</label>
+      <input type="email" name="email" id="email" class="form-style" required >
+
+
+      <label class="formLabel">Password</label>
+      <input type="password" name="pwd" id="password" required class="form-style" >
+      <div class="pw-view"><i class="fa fa-eye"></i></div> <br>
+      <p><a href="../resetpassword/reset-password.php" ><small>Forgot Password ?</small></a></p>
+      <div class="g-recaptcha" data-sitekey="6LdJ7KsaAAAAADktI0pN2xrxKECOVhYr7B3DKOhg"></div>
+
+  </div>
+    <div class="form-item">
+
+      <input type="submit" name="emplogin" class="login pull-right" value="Log In">
+      <div class="clear-fix"></div>
+    </div>
+  </form>
+</div>
+</div>
