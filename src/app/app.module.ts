@@ -8,6 +8,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule, Routes } from '@angular/router';
+import { UpdateAccountComponent } from './update-account/update-account.component';
+import { SearchAccountComponent } from './search-account/search-account.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HelpComponent } from './help/help.component';
 import { LoginComponent } from './login/login.component';
@@ -26,6 +28,8 @@ const appRoutes: Routes = [
     FooterComponent,
     HomeComponent,
     HeaderComponent,
+    UpdateAccountComponent,
+    SearchAccountComponent,
     AboutUsComponent,
     HelpComponent,
     LoginComponent,
