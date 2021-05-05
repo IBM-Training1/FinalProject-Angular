@@ -70,7 +70,7 @@
   }
 }
 
-#hero .hero-info .btn-get-started, #hero .hero-info .btn-services {
+#hero .hero-info .btn-get-started, #hero .hero-info .dropbtn {
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
   font-weight: 600;
@@ -95,12 +95,42 @@
   color: #fff;
 }
 
-#hero .hero-info .btn-services {
-  border: 2px solid #fff;
-}
-
-#hero .hero-info .btn-services:hover {
-  background: #007bff;
-  border-color: #007bff;
+#hero .hero-info .dropbtn {
+  background-color: #007bff;
+  border: 2px solid#007bff;
   color: #fff;
 }
+
+#hero .hero-info .dropbtn:hover {
+  background: none;
+  border-color: #fff;
+  color: #fff;
+}
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+
