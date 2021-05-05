@@ -11,11 +11,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HelpComponent } from './help/help.component';
 import { LoginComponent } from './login/login.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   {path:'About', component:AboutUsComponent},
   {path:'Help', component:HelpComponent},
-  {path:'login',component:LoginComponent}
+  {path:'login',component:LoginComponent},
+  {path:'createaccount', component:CreateAccountComponent},
 ];
 
 @NgModule({
@@ -26,7 +28,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     AboutUsComponent,
     HelpComponent,
-    LoginComponent
+    LoginComponent,
+    CreateAccountComponent
   ],
   imports: [RouterModule.forRoot(
     appRoutes,
