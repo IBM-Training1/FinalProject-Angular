@@ -1,9 +1,9 @@
 #hero {
   width: 100%;
-  position: relative;
-  /* background: url("../") center bottom no-repeat; */
+  position: relative;background-color: #0450a0;
+  /* background: url("C:\Users\Downloads\FinalProject-Angular\src\assets\img\hero-bg.png") center bottom no-repeat; */
   background-size: cover;
-  padding: 200px 0 120px 0;
+  padding: 100px 0 120px 0;
 }
 
 @media (max-width: 991px) {
@@ -60,7 +60,7 @@
 
 #hero .hero-info h2 span {
   color: #74b5fc;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 @media (max-width: 767px) {
