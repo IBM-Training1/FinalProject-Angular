@@ -8,6 +8,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule, Routes } from '@angular/router';
+import { UpdateAccountComponent } from './update-account/update-account.component';
+import { SearchAccountComponent } from './search-account/search-account.component';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent }
 ];
@@ -17,7 +19,9 @@ const appRoutes: Routes = [
     AppComponent,
     FooterComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    UpdateAccountComponent,
+    SearchAccountComponent
   ],
   imports: [RouterModule.forRoot(
     appRoutes,
