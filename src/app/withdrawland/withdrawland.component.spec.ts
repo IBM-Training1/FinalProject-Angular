@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TransactionComponent } from './transaction.component';
+import { WithdrawlandComponent } from './withdrawland.component';
 
-describe('TransactionComponent', () => {
-  let component: TransactionComponent;
-  let fixture: ComponentFixture<TransactionComponent>;
+describe('WithdrawlandComponent', () => {
+  let component: WithdrawlandComponent;
+  let fixture: ComponentFixture<WithdrawlandComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TransactionComponent ]
+      declarations: [ WithdrawlandComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TransactionComponent);
+    fixture = TestBed.createComponent(WithdrawlandComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

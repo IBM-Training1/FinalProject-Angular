@@ -19,8 +19,11 @@ import { EmployeelandComponent } from './employeeland/employeeland.component';
 
 import { CustomerlandComponent } from './customerland/customerland.component';
 import { TransactionComponent } from './transaction/transaction.component';
-import { WithdrawComponent } from './withdraw/withdraw.component';
 import { DepositComponent } from './deposit/deposit.component';
+import { CustomerUpdateComponent } from "./customer-update/customer-update.component";
+import { WithdrawComponent } from './withdraw/withdraw.component';
+import { WithdrawlandComponent } from './withdrawland/withdrawland.component';
+import { DepositlandComponent } from './depositland/depositland.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -32,6 +35,9 @@ const appRoutes: Routes = [
   {path:'land', component:EmployeelandComponent},
   {path:'updateEmployee',component:UpdateAccountComponent},
   {path:'customer', component:CustomerlandComponent},
+  {path:'searchall', component:SearchAllComponent},
+  {path:'update', component:CustomerUpdateComponent},
+
 
 ];
 
@@ -51,8 +57,11 @@ const appRoutes: Routes = [
     EmployeelandComponent,
     CustomerlandComponent,
     TransactionComponent,
+    DepositComponent,
+    CustomerUpdateComponent,
     WithdrawComponent,
-    DepositComponent
+    WithdrawlandComponent,
+    DepositlandComponent,
   ],
   imports: [RouterModule.forRoot(
     appRoutes,
