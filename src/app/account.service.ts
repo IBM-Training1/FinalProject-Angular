@@ -15,6 +15,15 @@ export class AccountService {
       responseType: "text"
     });
   }
+  getAccountbyNumber(accountNumber:any){
+    return this.http.get(URL+'number/'+ accountNumber, {
+      headers: {
+        "content-type": 'application/json',
+        reponseType: 'text'
+      }
+      });
+  }
+  //ser
   // searchAll(){
   //   return this.http.get(URL);
 }
