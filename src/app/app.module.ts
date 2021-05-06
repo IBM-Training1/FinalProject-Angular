@@ -18,7 +18,7 @@ import { SearchAllComponent } from './search-all/search-all.component';
 import { EmployeelandComponent } from './employeeland/employeeland.component';
 
 import { CustomerlandComponent } from './customerland/customerland.component';
-import { TransactionComponent } from './transaction/transaction.component';
+
 import { DepositComponent } from './deposit/deposit.component';
 import { CustomerUpdateComponent } from "./customer-update/customer-update.component";
 import { WithdrawComponent } from './withdraw/withdraw.component';
@@ -56,7 +56,6 @@ const appRoutes: Routes = [
     SearchAllComponent,
     EmployeelandComponent,
     CustomerlandComponent,
-    TransactionComponent,
     DepositComponent,
     CustomerUpdateComponent,
     WithdrawComponent,
