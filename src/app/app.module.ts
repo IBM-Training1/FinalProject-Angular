@@ -14,6 +14,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { HelpComponent } from './help/help.component';
 import { LoginComponent } from './login/login.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
+import { SearchAllComponent } from './search-all/search-all.component';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   {path:'About', component:AboutUsComponent},
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
     AboutUsComponent,
     HelpComponent,
     LoginComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    SearchAllComponent
   ],
   imports: [RouterModule.forRoot(
     appRoutes,

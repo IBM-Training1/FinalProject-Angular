@@ -9,12 +9,23 @@ const URL = 'http://localhost:8081/account/';
 export class AccountService {
 
   constructor(private http: HttpClient) { }
-  save(account:Account) {
-    return this.http.post(URL,account ,{
-      headers: {"content-type": 'application/json' },
+  save(account: Account) {
+    return this.http.post(URL, account, {
+      headers: { "content-type": 'application/json' },
       responseType: "text"
     });
   }
-  // searchAll(){
-  //   return this.http.get(URL);
+
+  searchByNumber(number: any) {
+    return this.http.get(URL + number, {
+      headers: {
+        "content-type": 'application/json',
+        reponseType: 'text'
+      }
+    });
+  }
+
+  getAllAccounts() {
+    return this.http.get(URL);
+  }
 }
