@@ -37,6 +37,8 @@ const appRoutes: Routes = [
   {path:'customer', component:CustomerlandComponent},
   {path:'searchall', component:SearchAllComponent},
   {path:'update', component:CustomerUpdateComponent},
+  {path:'withdraw', component:WithdrawComponent},
+  {path:'deposit', component:DepositComponent},
 
 
 ];
