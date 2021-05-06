@@ -6,6 +6,7 @@ export class Account{
 
   lastName:string='';
   balance:number=0.0;
+  depositAmount:number=0.0;
   createDate:Date=new Date();
   status:string='ACTIVE';
   type:string='SAVINGS';
