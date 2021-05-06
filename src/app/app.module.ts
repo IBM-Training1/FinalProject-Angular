@@ -14,13 +14,21 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { HelpComponent } from './help/help.component';
 import { LoginComponent } from './login/login.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
+import { EmployeelandComponent } from './employeeland/employeeland.component';
+import { CustomerlandComponent } from './customerland/customerland.component';
+import { TransactionComponent } from './transaction/transaction.component';
+import { WithdrawComponent } from './withdraw/withdraw.component';
+import { DepositComponent } from './deposit/deposit.component';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   {path:'About', component:AboutUsComponent},
   {path:'Help', component:HelpComponent},
   {path:'login',component:LoginComponent},
   {path:'createaccount', component:CreateAccountComponent},
-  {path:'searchaccount',component:SearchAccountComponent}
+  {path:'searchaccount',component:SearchAccountComponent},
+  {path:'land', component:EmployeelandComponent},
+  {path:'customer', component:CustomerlandComponent},
+
 ];
 
 @NgModule({
@@ -34,7 +42,12 @@ const appRoutes: Routes = [
     AboutUsComponent,
     HelpComponent,
     LoginComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    EmployeelandComponent,
+    CustomerlandComponent,
+    TransactionComponent,
+    WithdrawComponent,
+    DepositComponent
   ],
   imports: [RouterModule.forRoot(
     appRoutes,
