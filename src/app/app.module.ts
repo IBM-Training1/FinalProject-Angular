@@ -15,6 +15,10 @@ import { HelpComponent } from './help/help.component';
 import { LoginComponent } from './login/login.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { EmployeelandComponent } from './employeeland/employeeland.component';
+import { CustomerlandComponent } from './customerland/customerland.component';
+import { TransactionComponent } from './transaction/transaction.component';
+import { WithdrawComponent } from './withdraw/withdraw.component';
+import { DepositComponent } from './deposit/deposit.component';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   {path:'About', component:AboutUsComponent},
@@ -22,6 +26,7 @@ const appRoutes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'createaccount', component:CreateAccountComponent},
   {path:'land', component:EmployeelandComponent},
+  {path:'customer', component:CustomerlandComponent},
 
 ];
 
@@ -37,7 +42,11 @@ const appRoutes: Routes = [
     HelpComponent,
     LoginComponent,
     CreateAccountComponent,
-    EmployeelandComponent
+    EmployeelandComponent,
+    CustomerlandComponent,
+    TransactionComponent,
+    WithdrawComponent,
+    DepositComponent
   ],
   imports: [RouterModule.forRoot(
     appRoutes,
