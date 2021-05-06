@@ -25,21 +25,32 @@ export class AccountService {
   }
 
   constructor(private http: HttpClient) { }
-  save(account:Account) {
-    return this.http.post(URL,account ,{
-      headers: {"content-type": 'application/json' },
+  save(account: Account) {
+    return this.http.post(URL, account, {
+      headers: { "content-type": 'application/json' },
       responseType: "text"
     });
   }
-  getAccountbyNumber(accountNumber:any){
-    return this.http.get(URL+'number/'+ accountNumber, {
+
+  searchByNumber(number: any) {
+    return this.http.get(URL + 'number/' + number, {
       headers: {
         "content-type": 'application/json',
         reponseType: 'text'
       }
-      });
+    });
   }
-  //ser
-  // searchAll(){
-  //   return this.http.get(URL);
+  getAccountbyNumber(accountNumber: any) {
+    return this.http.get(URL + 'number/' + accountNumber, {
+      headers: {
+        "content-type": 'application/json',
+        reponseType: 'text'
+      }
+    });
+  }
+
+  getAllAccounts() {
+    return this.http.get(URL);
+  }
+
 }
