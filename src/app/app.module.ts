@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -14,11 +14,14 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { HelpComponent } from './help/help.component';
 import { LoginComponent } from './login/login.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
+import { SearchAllComponent } from './search-all/search-all.component';
 import { EmployeelandComponent } from './employeeland/employeeland.component';
+
 import { CustomerlandComponent } from './customerland/customerland.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { WithdrawComponent } from './withdraw/withdraw.component';
 import { DepositComponent } from './deposit/deposit.component';
+
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   {path:'About', component:AboutUsComponent},
@@ -44,6 +47,7 @@ const appRoutes: Routes = [
     HelpComponent,
     LoginComponent,
     CreateAccountComponent,
+    SearchAllComponent,
     EmployeelandComponent,
     CustomerlandComponent,
     TransactionComponent,
@@ -54,7 +58,7 @@ const appRoutes: Routes = [
     appRoutes,
     { enableTracing: true } // <-- debugging purposes only
   ),
-    BrowserModule,FormsModule,HttpClientModule
+    BrowserModule, FormsModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
