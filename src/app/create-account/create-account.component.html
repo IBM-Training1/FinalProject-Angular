@@ -1,0 +1,84 @@
+
+
+<form class="createAccount" id='createAccount'>
+  <h5 style="font-weight: bold;font-size:x-large;">Create Account</h5>
+  <br>
+  <div class="row fieldRow">
+    <div class="col-sm-6">
+      <label >First Name<span>*</span></label>
+      <input [(ngModel)]='account.firstName' maxlength=100 type="text" class="form-control" id='fname'
+        name="name" required>
+    </div>
+
+    <div class="col-sm-6">
+      <label>Last Name<span>*</span></label>
+      <input [(ngModel)]='account.lastName' class="form-control" id='lname'  name="lname" required>
+
+    </div>
+  </div>
+  <div class="row fieldRow">
+    <div class="col-sm-6">
+      <label >Address H/No.<span>*</span></label>
+      <input [(ngModel)]='account.address.houseNumber' maxlength=100 type="text" class="form-control" id='house'
+        name="name" required>
+    </div>
+
+    <div class="col-sm-6">
+
+      <label >City<span>*</span></label>
+      <input [(ngModel)]='account.address.city' class="form-control"   name="City">
+
+    </div>
+  </div>
+  <div class="row fieldRow">
+    <div class="col-sm-6">
+      <label >State<span>*</span></label>
+      <input [(ngModel)]='account.address.state' maxlength=100 type="text" class="form-control"
+        name="name" required>
+    </div>
+
+    <div class="col-sm-6">
+      <label >Pin Code <span>*</span> </label>
+      <input [(ngModel)]='account.address.pinCode' class="form-control"  name="lname">
+
+    </div>
+  </div>
+  <div class="row fieldRow">
+  <div class="col-sm-6">
+    <label >Status<span>*</span></label>
+    <select [(ngModel)]='account.status' class="form-control" id='status' name="status">
+      <option value="ACTIVE">ACTIVE</option>
+      <option value="INACTIVE">INACTIIVE</option>
+      <option value="CLOSED">CLOSED</option>
+    </select>
+  </div>
+
+
+  <div class="col-sm-6">
+    <label>Type<span>*</span></label>
+    <select [(ngModel)]='account.type' name="type" class="form-control" id='type'>
+      <option value="SAVINGS">SAVINGS</option>
+      <option value="CURRENT">CURRENT</option>
+
+    </select>
+  </div>
+
+  </div>
+
+  <div class="row fieldRow">
+    <div class="col-sm-6">
+      <label >Balance<span>*</span></label>
+      <input [(ngModel)]='account.balance' maxlength=100 type="text" class="form-control"
+        name="name" required>
+    </div>
+    <div class="col-sm-6">
+      <label >AccountNumber<span>*</span></label>
+      <input [(ngModel)]='account.number' class="form-control" id='number'  name="number">
+
+    </div>
+  </div>
+
+
+</form>
+
+<button (click)='save()' class="btn btn-primary btn-block" style="margin-bottom: 50px;">Save</button>
