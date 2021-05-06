@@ -44,19 +44,26 @@ export class WithdrawComponent implements OnInit {
   }
 
   update() {
-    const promise = this.accountService.updateAccount(this.account, this.account.id);
-    promise.subscribe((response: any) => {
-      console.log(response);
-      this.accountArray[response];
 
-      alert("Account is Updated")
-    },
+    if (this.account.balance >= this.account.withdrawAmount) {
 
-      error => {
-        console.log(error);
-        alert("Update not possible");
+      this.account.balance = this.account.balance - this.account.withdrawAmount;
 
-      })
+      const promise = this.accountService.updateAccount(this.account, this.account.id);
+      promise.subscribe((response: any) => {
+        console.log(response);
+        this.accountArray[response];
+
+        alert("Amount Withdrawn")
+      },
+        error => {
+          console.log(error);
+          alert("Update not possible");
+        })
+    }
+    else {
+      alert("Enter an amount less than or equal to " + this.account.balance);
+    }
   }
 
   ngOnInit(): void {
