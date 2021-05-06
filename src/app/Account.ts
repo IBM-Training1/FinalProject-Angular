@@ -11,4 +11,5 @@ export class Account{
   status:string='ACTIVE';
   type:string='SAVINGS';
   address:Address=new Address;
+  withdrawAmount:number=0.0;
 }
