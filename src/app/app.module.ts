@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -15,12 +15,17 @@ import { HelpComponent } from './help/help.component';
 import { LoginComponent } from './login/login.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { SearchAllComponent } from './search-all/search-all.component';
+import { EmployeelandComponent } from './employeeland/employeeland.component';
+
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  {path:'About', component:AboutUsComponent},
-  {path:'Help', component:HelpComponent},
-  {path:'login',component:LoginComponent},
-  {path:'createaccount', component:CreateAccountComponent},
+  { path: 'About', component: AboutUsComponent },
+  { path: 'Help', component: HelpComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'createaccount', component: CreateAccountComponent },
+  { path: 'land', component: EmployeelandComponent },
+  { path: 'employeesearch', component: SearchAllComponent },
+
 ];
 
 @NgModule({
@@ -35,13 +40,14 @@ const appRoutes: Routes = [
     HelpComponent,
     LoginComponent,
     CreateAccountComponent,
-    SearchAllComponent
+    SearchAllComponent,
+    EmployeelandComponent
   ],
   imports: [RouterModule.forRoot(
     appRoutes,
     { enableTracing: true } // <-- debugging purposes only
   ),
-    BrowserModule,FormsModule,HttpClientModule
+    BrowserModule, FormsModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
