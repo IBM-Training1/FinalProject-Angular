@@ -54,7 +54,7 @@
   <div class="row fieldRow">
     <div class="col-sm-6">
       <label >Status</label>
-      <select [(ngModel)]='account.status' class="form-control" id='status' name="status">
+      <select [(ngModel)]='account.status' class="form-control" id='status' name="status" disabled >
         <option value="ACTIVE">ACTIVE</option>
         <option value="INACTIVE">INACTIIVE</option>
         <option value="CLOSED">CLOSED</option>
@@ -64,7 +64,7 @@
 
     <div class="col-sm-6">
       <label >Type</label>
-      <select [(ngModel)]='account.type' name="type" class="form-control" id='type'>
+      <select [(ngModel)]='account.type' name="type" class="form-control" id='type' disabled >
         <option value="SAVINGS">SAVINGS</option>
         <option value="CURRENT">CURRENT</option>
 
@@ -86,3 +86,4 @@
 </form>
 
 <button (click)='update()' class="btn btn-primary btn-block">Save</button>
+
