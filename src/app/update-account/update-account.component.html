@@ -13,47 +13,47 @@
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6">
-      <label for="fname">First Name<span>*</span></label>
+      <label >First Name<span>*</span></label>
       <input [(ngModel)]='account.firstName' maxlength=100 type="text" class="form-control" id='fname'
         placeholder="First Name" name="name" required>
     </div>
 
     <div class="col-sm-6">
-      <label for="lname">Last Name<span>*</span></label>
+      <label>Last Name<span>*</span></label>
       <input [(ngModel)]='account.lastName' class="form-control" id='lname' placeholder="Last Name" name="lname">
 
     </div>
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6">
-      <label for="address">Address<span>*</span></label>
+      <label >Address<span>*</span></label>
       <input [(ngModel)]='account.address.houseNumber' maxlength=100 type="text" class="form-control" id='house'
-        placeholder="Address" name="name" required>
+        placeholder="Address" name="housename" id="housename" required>
     </div>
 
     <div class="col-sm-6">
 
-      <label for="lname">City</label>
-      <input [(ngModel)]='account.address.city' class="form-control" placeholder="City" name="City">
+      <label >City</label>
+      <input [(ngModel)]='account.address.city' class="form-control" placeholder="City" name="City" id="city">
 
     </div>
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6">
-      <label for="address">State</label>
+      <label >State</label>
       <input [(ngModel)]='account.address.state' maxlength=100 type="text" class="form-control" placeholder="State"
-        name="name" required>
+        name="state" id="state" required>
     </div>
 
     <div class="col-sm-6">
-      <label for="lname">Pin Code <span>*</span> </label>
-      <input [(ngModel)]='account.address.pinCode' class="form-control" placeholder="Pincode" name="lname">
+      <label >Pin Code <span>*</span> </label>
+      <input [(ngModel)]='account.address.pinCode' class="form-control" placeholder="Pincode" id="pincode" name="pincode">
 
     </div>
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6">
-      <label for="severity">Status</label>
+      <label >Status</label>
       <select [(ngModel)]='account.status' class="form-control" id='status' name="status">
         <option value="ACTIVE">ACTIVE</option>
         <option value="INACTIVE">INACTIIVE</option>
@@ -63,7 +63,7 @@
 
 
     <div class="col-sm-6">
-      <label for="priority">Type</label>
+      <label >Type</label>
       <select [(ngModel)]='account.type' name="type" class="form-control" id='type'>
         <option value="SAVINGS">SAVINGS</option>
         <option value="CURRENT">CURRENT</option>
@@ -75,9 +75,9 @@
 
   <div class="row fieldRow">
     <div class="col-sm-6">
-      <label for="address">Balance</label>
+      <label >Balance</label>
       <input [(ngModel)]='account.balance' maxlength=100 type="text" class="form-control" placeholder="Balance"
-        name="name" required>
+         id="balance" name="balance" required>
     </div>
 
   </div>
