@@ -10,7 +10,7 @@
     style="padding-bottom: 30px"
   >
     <!-- input fields -->
-    <div class="row">
+    <!-- <div class="row">
       <div class="col">
         <div class="form-group">
           <label for="uname" class="mb-2 mr-sm-2"><b>First Name : </b></label>
@@ -35,69 +35,59 @@
             id="number"
           />
         </div>
-      </div>
+      </div> -->
 
-      <div class="row">
-        <div class="col">
-          <div class="form-group">
-            <label for="uname" class="mb-2 mr-sm-2"
-              ><b>Account number : </b></label
-            >
-            <br />
-            <input
-              type="text"
-              [(ngModel)]="account.number"
-              class="form-control mb-2 mr-sm-2"
-              id="number"
-              required
-            />
-          </div>
-        </div>
-      </div>
-
-      <div class="text-center">
-        <!-- <button
+      <div class="form-group form-inline">
+        <label for="uname" class="mb-2 mr-sm-2"><b>Account number : </b></label>
+        <br />
+        <input
+          type="text"
+          [(ngModel)]="account.number"
+          class="form-control mb-2 mr-sm-2"
+          id="number"
+        />
+        <button
           class="btn btn-info"
-          style="width: 30%"
-          (click)="searchByNumber()"
+          style="width: 45%"
+          (click)="searchByAccountNumber(account.number)"
         >
-          Search by Name and Status
-        </button> -->
-
-        <!-- &nbsp;&nbsp;
-      <button class="btn btn-info" style="width: 30%" (click)="refreshPage()">
-        Refresh
-      </button> -->
+          Search by Account Number
+        </button>
       </div>
 
-      <!-- table -->
+    <div class="text-center">
+      <button class="btn btn-info" style="width: 45%" (click)="ngOnInit()">
+        Get All Accounts
+      </button>
+    </div>
 
-      <div class="table-responsive">
-        <table
-          class="table table-bordered table-stripped"
-          style="border: 2px solid #000000; margin-top: 50px"
-        >
-          <thead class="thead-dark">
-            <td>Account Number</td>
-            <td>First Name</td>
-            <td>Last Name</td>
-            <td>Created Date</td>
-            <td>Type</td>
-            <td>Status</td>
-          </thead>
+    <!-- table -->
 
-          <tbody>
-            <tr *ngFor="let account of accountArray; index as i">
-              <td>{{ account.number }}</td>
-              <td>{{ account.firstName }}</td>
-              <td>{{ account.lastName }}</td>
-              <td>{{ account.createDate | date }}</td>
-              <td>{{ account.type }}</td>
-              <td>{{ account.status }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="table-responsive">
+      <table
+        class="table table-bordered table-stripped"
+        style="border: 2px solid #000000; margin-top: 50px"
+      >
+        <thead class="thead-dark">
+          <td>Account Number</td>
+          <td>First Name</td>
+          <td>Last Name</td>
+          <td>Created Date</td>
+          <td>Type</td>
+          <td>Status</td>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let account of accountArray; index as i">
+            <td>{{ account.number }}</td>
+            <td>{{ account.firstName }}</td>
+            <td>{{ account.lastName }}</td>
+            <td>{{ account.createDate | date }}</td>
+            <td>{{ account.type }}</td>
+            <td>{{ account.status }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </body>

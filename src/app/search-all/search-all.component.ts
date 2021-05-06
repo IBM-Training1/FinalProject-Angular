@@ -9,15 +9,15 @@ import { AccountService } from '../account.service';
 })
 export class SearchAllComponent implements OnInit {
   accountArray: any;
-  account: any;
+  account:Account=new Account();
 
-  constructor(private accountService: AccountService) {
+  constructor(private accountService: AccountService) { }
 
-    // searchByNumber(number:any){
-    const observable = this.accountService.searchByNumber(this.account.number);
+  searchByAccountNumber(number: any) {
+    const observable = this.accountService.searchByNumber(number);
     observable.subscribe(response => {
       console.log(response);
-      this.accountArray = response;
+      this.accountArray = [response];
       if (this.accountArray[0] == undefined) {
         alert("No Account found")
 
@@ -29,7 +29,6 @@ export class SearchAllComponent implements OnInit {
         alert("Error Occured. Not able to search..");
       })
 
-    // }
   }
 
   ngOnInit(): void {

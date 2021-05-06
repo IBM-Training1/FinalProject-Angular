@@ -17,7 +17,7 @@ export class AccountService {
   }
 
   searchByNumber(number: any) {
-    return this.http.get(URL + number, {
+    return this.http.get(URL + 'number/' + number, {
       headers: {
         "content-type": 'application/json',
         reponseType: 'text'
