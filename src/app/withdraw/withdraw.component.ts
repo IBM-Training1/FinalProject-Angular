@@ -45,24 +45,31 @@ export class WithdrawComponent implements OnInit {
 
   update() {
 
+    if (confirm("Are u sure you want to withdraw Rs:" + this.account.withdrawAmount + "?")) {
+
     if (this.account.balance >= this.account.withdrawAmount) {
 
       this.account.balance = this.account.balance - this.account.withdrawAmount;
 
-      const promise = this.accountService.updateAccount(this.account, this.account.id);
-      promise.subscribe((response: any) => {
-        console.log(response);
-        this.accountArray[response];
 
-        alert("Amount Withdrawn")
-      },
-        error => {
-          console.log(error);
-          alert("Update not possible");
-        })
+        const promise = this.accountService.updateAccount(this.account, this.account.id);
+        promise.subscribe((response: any) => {
+          console.log(response);
+          this.accountArray[response];
+
+          alert("Rs: "+ this.account.withdrawAmount + "  is withdrawn" );
+        },
+          error => {
+            console.log(error);
+            alert("Update not possible");
+          })
+      }
+      else {
+        alert("Enter an amount less than or equal to " + this.account.balance);
+      }
     }
     else {
-      alert("Enter an amount less than or equal to " + this.account.balance);
+      alert("Your transaction is Cancelled!!!");
     }
   }
 
