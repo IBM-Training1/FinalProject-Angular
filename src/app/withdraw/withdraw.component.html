@@ -1,8 +1,4 @@
-<form
-  class="createAccount"
-  id="createAccount"
-  style="margin-top: 30px;"
->
+<form class="createAccount" id="createAccount" style="margin-top: 30px;">
   <h5 style="font-weight: bold; font-size: x-large; color: #0450a0">
     Update Account
   </h5>
@@ -10,19 +6,10 @@
   <div class="row fieldRow" style="color: #0450a0">
     <div class="col-sm-12" style="color: #0450a0">
       <label for="lname">AccountNumber<span>*</span></label>
-      <input
-        [(ngModel)]="account.number"
-        class="form-control"
-        id="number"
-        placeholder="number"
-        name="number"
-      />
+      <input [(ngModel)]="account.number" class="form-control" id="number" placeholder="number" name="number" />
       <br />
 
-      <button
-        class="btn btn-primary"
-        (click)="searchAccountByNumber(account.number)"
-      >
+      <button class="btn btn-primary" (click)="searchAccountByNumber(account.number)">
         Get Details
       </button>
     </div>
@@ -30,94 +17,46 @@
   <div class="row fieldRow" style="color: #0450a0">
     <div class="col-sm-6">
       <label>First Name<span>*</span></label>
-      <input
-        [(ngModel)]="account.firstName"
-        maxlength="100"
-        type="text"
-        class="form-control"
-        id="fname"
-        placeholder="First Name"
-        name="name"
-        required
-      />
+      <input [(ngModel)]="account.firstName" maxlength="100" type="text" class="form-control" id="fname"
+        placeholder="First Name" name="name" required />
     </div>
 
     <div class="col-sm-6" style="color: #0450a0">
       <label>Last Name<span>*</span></label>
-      <input
-        [(ngModel)]="account.lastName"
-        class="form-control"
-        id="lname"
-        placeholder="Last Name"
-        name="lname"
-      />
+      <input [(ngModel)]="account.lastName" class="form-control" id="lname" placeholder="Last Name" name="lname" />
     </div>
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6" style="color: #0450a0">
       <!-- <label >Address H/No.<span>*</span></label> -->
-      <input
-        [(ngModel)]="account.address.houseNumber"
-        maxlength="100"
-        type="hidden"
-        class="form-control"
-        id="house"
-        placeholder="Address"
-        name="housename"
-        id="housename"
-        required
-      />
+      <input [(ngModel)]="account.address.houseNumber" maxlength="100" type="hidden" class="form-control" id="house"
+        placeholder="Address" name="housename" id="housename" required />
     </div>
 
     <div class="col-sm-6" style="color: #0450a0">
       <!-- <label >City</label> -->
-      <input
-        [(ngModel)]="account.address.city"
-        class="form-control"
-        placeholder="City"
-        name="City"
-        id="city"
-        type="hidden"
-      />
+      <input [(ngModel)]="account.address.city" class="form-control" placeholder="City" name="City" id="city"
+        type="hidden" />
     </div>
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6" style="color: #0450a0">
       <!-- <label >State</label> -->
-      <input
-        [(ngModel)]="account.address.state"
-        maxlength="100"
-        type="hidden"
-        class="form-control"
-        placeholder="State"
-        name="state"
-        id="state"
-        required
-      />
+      <input [(ngModel)]="account.address.state" maxlength="100" type="hidden" class="form-control" placeholder="State"
+        name="state" id="state" required />
     </div>
 
     <div class="col-sm-6" style="color: #0450a0">
       <!-- <label >Pin Code <span>*</span> </label> -->
-      <input
-        [(ngModel)]="account.address.pinCode"
-        type="hidden"
-        class="form-control"
-        placeholder="Pincode"
-        id="pincode"
-        name="pincode"
-      />
+      <input [(ngModel)]="account.address.pinCode" type="hidden" class="form-control" placeholder="Pincode" id="pincode"
+        name="pincode" />
     </div>
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6" style="color: #0450a0">
-      <label>Status</label>
-      <select
-        [(ngModel)]="account.status"
-        class="form-control"
-        id="status"
-        name="status"
-        disabled
-      >
+      <!-- <label>Status</label> -->
+      <select style="display: none" [(ngModel)]="account.status" class="form-control" id="status" name="status"
+        disabled>
         <option value="ACTIVE">ACTIVE</option>
         <option value="INACTIVE">INACTIIVE</option>
         <option value="CLOSED">CLOSED</option>
@@ -125,14 +64,8 @@
     </div>
 
     <div class="col-sm-6" style="color: #0450a0">
-      <label>Type</label>
-      <select
-        [(ngModel)]="account.type"
-        name="type"
-        class="form-control"
-        id="type"
-        disabled
-      >
+      <!-- <label>Type</label> -->
+      <select style="display: none" [(ngModel)]="account.type" name="type" class="form-control" id="type" disabled>
         <option value="SAVINGS">SAVINGS</option>
         <option value="CURRENT">CURRENT</option>
       </select>
@@ -142,30 +75,13 @@
   <div class="row fieldRow">
     <div class="col-sm-6" style="color: #0450a0">
       <label>Balance</label>
-      <input
-        [(ngModel)]="account.balance"
-        type="text"
-        class="form-control"
-        placeholder="Balance"
-        id="balance"
-        name="balance"
-        disabled
-        required
-      />
+      <input [(ngModel)]="account.balance" type="text" class="form-control" placeholder="Balance" id="balance"
+        name="balance" disabled required />
     </div>
-  </div>
-
-  <div class="row fieldRow">
     <div class="col-sm-6" style="color: #0450a0">
       <label>Amount to be withdrawn : </label>
-      <input
-        [(ngModel)]="account.withdrawAmount"
-        type="text"
-        class="form-control"
-        id="withdrawamount"
-        name="withdrawamount"
-        required
-      />
+      <input [(ngModel)]="account.withdrawAmount" type="text" class="form-control" id="withdrawamount"
+        name="withdrawamount" required />
     </div>
   </div>
 </form>
