@@ -7,6 +7,22 @@ const URL = 'http://localhost:8081/account/';
   providedIn: 'root'
 })
 export class AccountService {
+  searchAccountByNumber1(number: any) {
+    return this.http.get(URL + '/number/' + number, {
+      headers: {
+        "content-type": 'application/json',
+        reponseType: 'text'
+      }
+    });
+  }
+
+
+
+  updateAccount(Account: Account, id: any) {
+    return this.http.put(URL + '/' + id, Account, {
+      headers: { "content-type": 'application/json' }
+    })
+  }
 
   constructor(private http: HttpClient) { }
   save(account:Account) {
