@@ -1,51 +1,51 @@
 
 
 <form class="createAccount" id='createAccount'>
-  <h5>Create Account</h5>
+  <h5 style="font-weight: bold;font-size:x-large;">Create Account</h5>
   <br>
   <div class="row fieldRow">
     <div class="col-sm-6">
-      <label for="fname">First Name<span>*</span></label>
-      <input [(ngModel)]='account.firstName' maxlength=100 type="text" class="form-control" id='fname' placeholder="First Name"
+      <label >First Name<span>*</span></label>
+      <input [(ngModel)]='account.firstName' maxlength=100 type="text" class="form-control" id='fname'
         name="name" required>
     </div>
 
     <div class="col-sm-6">
-      <label for="lname">Last Name<span>*</span></label>
-      <input [(ngModel)]='account.lastName' class="form-control" id='lname' placeholder="Last Name" name="lname">
+      <label>Last Name<span>*</span></label>
+      <input [(ngModel)]='account.lastName' class="form-control" id='lname'  name="lname" required>
 
     </div>
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6">
-      <label for="address">Address<span>*</span></label>
-      <input [(ngModel)]='account.address.houseNumber' maxlength=100 type="text" class="form-control" id='house' placeholder="Address"
+      <label >Address H/No.<span>*</span></label>
+      <input [(ngModel)]='account.address.houseNumber' maxlength=100 type="text" class="form-control" id='house'
         name="name" required>
     </div>
 
     <div class="col-sm-6">
 
-      <label for="lname">City</label>
-      <input [(ngModel)]='account.address.city' class="form-control"  placeholder="City" name="City">
+      <label >City<span>*</span></label>
+      <input [(ngModel)]='account.address.city' class="form-control"   name="City">
 
     </div>
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6">
-      <label for="address">State</label>
-      <input [(ngModel)]='account.address.state' maxlength=100 type="text" class="form-control" placeholder="State"
+      <label >State<span>*</span></label>
+      <input [(ngModel)]='account.address.state' maxlength=100 type="text" class="form-control"
         name="name" required>
     </div>
 
     <div class="col-sm-6">
-      <label for="lname">Pin Code <span>*</span> </label>
-      <input [(ngModel)]='account.address.pinCode' class="form-control"  placeholder="Pincode" name="lname">
+      <label >Pin Code <span>*</span> </label>
+      <input [(ngModel)]='account.address.pinCode' class="form-control"  name="lname">
 
     </div>
   </div>
   <div class="row fieldRow">
   <div class="col-sm-6">
-    <label for="severity">Status</label>
+    <label >Status<span>*</span></label>
     <select [(ngModel)]='account.status' class="form-control" id='status' name="status">
       <option value="ACTIVE">ACTIVE</option>
       <option value="INACTIVE">INACTIIVE</option>
@@ -55,7 +55,7 @@
 
 
   <div class="col-sm-6">
-    <label for="priority">Type</label>
+    <label>Type<span>*</span></label>
     <select [(ngModel)]='account.type' name="type" class="form-control" id='type'>
       <option value="SAVINGS">SAVINGS</option>
       <option value="CURRENT">CURRENT</option>
@@ -67,13 +67,13 @@
 
   <div class="row fieldRow">
     <div class="col-sm-6">
-      <label for="address">Balance</label>
-      <input [(ngModel)]='account.balance' maxlength=100 type="text" class="form-control"  placeholder="Balance"
+      <label >Balance<span>*</span></label>
+      <input [(ngModel)]='account.balance' maxlength=100 type="text" class="form-control"
         name="name" required>
     </div>
     <div class="col-sm-6">
-      <label for="lname">AccountNumber<span>*</span></label>
-      <input [(ngModel)]='account.number' class="form-control" id='number' placeholder="number" name="number">
+      <label >AccountNumber<span>*</span></label>
+      <input [(ngModel)]='account.number' class="form-control" id='number'  name="number">
 
     </div>
   </div>
@@ -81,4 +81,4 @@
 
 </form>
 
-<button (click)='save()' class="btn btn-primary btn-block">Save</button>
+<button (click)='save()' class="btn btn-primary btn-block" style="margin-bottom: 50px;">Save</button>

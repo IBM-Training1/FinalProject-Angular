@@ -20,6 +20,7 @@ const appRoutes: Routes = [
   {path:'Help', component:HelpComponent},
   {path:'login',component:LoginComponent},
   {path:'createaccount', component:CreateAccountComponent},
+  {path:'searchaccount',component:SearchAccountComponent}
 ];
 
 @NgModule({
