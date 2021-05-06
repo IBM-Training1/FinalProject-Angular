@@ -58,7 +58,7 @@
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6">
-      <select [(ngModel)]='account.status' type="hidden" class="form-control" id='status' name="status" disabled>
+      <select style="display: none" [(ngModel)]='account.status'  class="form-control" id='status' name="status" disabled>
         <option value="ACTIVE">ACTIVE</option>
         <option value="INACTIVE">INACTIIVE</option>
         <option value="CLOSED">CLOSED</option>
@@ -66,7 +66,7 @@
     </div>
 
     <div class="col-sm-6">
-      <select [(ngModel)]='account.type' name="type" type="hidden" class="form-control" id='type' disabled>
+      <select style="display: none" [(ngModel)]='account.type' name="type" type="hidden" class="form-control" id='type' disabled>
         <option value="SAVINGS">SAVINGS</option>
         <option value="CURRENT">CURRENT</option>
       </select>

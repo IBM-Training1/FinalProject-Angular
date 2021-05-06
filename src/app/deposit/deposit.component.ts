@@ -49,11 +49,16 @@ export class DepositComponent implements OnInit {
   }
 
   deposit() {
+    var a:number=+this.account.balance
+      var b:number=+this.account.depositAmount
+      a+=b;
+      this.accountArray.balance=a;
+      // this.account=this.accountArray;
+
     const promise = this.accountService.updateAccount(this.account, this.account.id);
     promise.subscribe((response: any) => {
       console.log(response);
 
-      this.account.balance+=this.account.depositAmount;
       this.accountArray[response];
 
       alert("Amount Deposited")
