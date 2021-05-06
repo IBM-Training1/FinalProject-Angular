@@ -17,14 +17,21 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { SearchAllComponent } from './search-all/search-all.component';
 import { EmployeelandComponent } from './employeeland/employeeland.component';
 
+import { CustomerlandComponent } from './customerland/customerland.component';
+import { TransactionComponent } from './transaction/transaction.component';
+import { WithdrawComponent } from './withdraw/withdraw.component';
+import { DepositComponent } from './deposit/deposit.component';
+
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'About', component: AboutUsComponent },
-  { path: 'Help', component: HelpComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'createaccount', component: CreateAccountComponent },
-  { path: 'land', component: EmployeelandComponent },
-  { path: 'employeesearch', component: SearchAllComponent },
+  {path:'About', component:AboutUsComponent},
+  {path:'Help', component:HelpComponent},
+  {path:'login',component:LoginComponent},
+  {path:'createaccount', component:CreateAccountComponent},
+  {path:'searchaccount',component:SearchAccountComponent},
+  {path:'land', component:EmployeelandComponent},
+  {path:'updateEmployee',component:UpdateAccountComponent},
+  {path:'customer', component:CustomerlandComponent},
 
 ];
 
@@ -41,7 +48,11 @@ const appRoutes: Routes = [
     LoginComponent,
     CreateAccountComponent,
     SearchAllComponent,
-    EmployeelandComponent
+    EmployeelandComponent,
+    CustomerlandComponent,
+    TransactionComponent,
+    WithdrawComponent,
+    DepositComponent
   ],
   imports: [RouterModule.forRoot(
     appRoutes,
