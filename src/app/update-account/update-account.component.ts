@@ -76,7 +76,9 @@ export class UpdateAccountComponent implements OnInit {
 
       error => {
         console.log(error);
-        alert("Update not possible");
+        swal.fire({
+          icon:"error",
+          text:"Update not possible"});
 
       })
   }

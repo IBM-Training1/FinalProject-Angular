@@ -37,7 +37,9 @@ export class SearchAccountComponent implements OnInit {
       },
         error => {
           console.log(error);
-          alert('Enter Account Number')
+          swal.fire({
+            icon:"error",
+            text:"Enter Account Number "});
         });
       }
 
