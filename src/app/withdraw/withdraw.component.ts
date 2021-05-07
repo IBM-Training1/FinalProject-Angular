@@ -47,9 +47,9 @@ export class WithdrawComponent implements OnInit {
 
     if (confirm("Are u sure you want to withdraw Rs:" + this.account.withdrawAmount + "?")) {
 
-    if (this.account.balance >= this.account.withdrawAmount) {
+      if (this.account.balance >= this.account.withdrawAmount) {
 
-      this.account.balance = this.account.balance - this.account.withdrawAmount;
+        this.account.balance = this.account.balance - this.account.withdrawAmount;
 
 
         const promise = this.accountService.updateAccount(this.account, this.account.id);
@@ -57,7 +57,8 @@ export class WithdrawComponent implements OnInit {
           console.log(response);
           this.accountArray[response];
 
-          alert("Rs: "+ this.account.withdrawAmount + "  is withdrawn" );
+          var alertMessage = ("Thank you for banking with us...! \n First Name : " + this.account.firstName + "\n Last Name : " + this.account.lastName + "\n Amount Withdrawn : " + this.account.withdrawAmount + "\n Available Balance : " + this.account.balance)
+          alert(alertMessage);
         },
           error => {
             console.log(error);
