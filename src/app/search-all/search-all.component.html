@@ -47,19 +47,20 @@
           id="number"
         />
         <button
-          class="btn btn-info"
+          class="btn btn-primary btn-block searchBtn"
           style="width: 45%"
           (click)="searchByAccountNumber(account.number)"
         >
           Search by Account Number
         </button>
+        <div class="text-center">
+          <button class="btn btn-primary btn-block searchBtn" style="width:80px ; margin-left: 150px;" (click)="ngOnInit()">
+            Refresh
+          </button>
+        </div>
       </div>
 
-    <div class="text-center">
-      <button class="btn btn-info" style="width: 45%" (click)="ngOnInit()">
-        Get All Accounts
-      </button>
-    </div>
+
 
     <!-- table -->
 

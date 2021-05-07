@@ -17,3 +17,6 @@ tr:nth-child(odd){
 tr,tr td:hover{
   background-color:rgb(213, 218, 221);
 }
+.button{
+width: 30px;
+}
