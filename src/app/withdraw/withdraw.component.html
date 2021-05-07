@@ -18,8 +18,8 @@
       <button
         class="btn btn-primary"
         (click)="searchAccountByNumber(account.number)"
-      >
-        Get Details
+      style="width:100%">
+        Search
       </button>
     </div>
   </div>
@@ -49,6 +49,37 @@
       />
     </div>
   </div>
+  <div class="row fieldRow">
+    <div class="col-sm-6" style="color: #0450a0">
+      <label>Balance</label>
+      <input
+        [(ngModel)]="account.balance"
+        type="text"
+        class="form-control"
+        placeholder="Balance"
+        id="balance"
+        name="balance"
+        disabled
+        required
+      />
+    </div>
+    <div class="col-sm-6" style="color: #0450a0">
+      <label>Amount to be withdrawn : </label>
+      <input
+        [(ngModel)]="account.withdrawAmount"
+        type="text"
+        class="form-control"
+        id="withdrawamount"
+        name="withdrawamount"
+        required
+      />
+    </div>
+  </div>
+  <button (click)="update()" class="btn btn-primary btn-block"style="width=100%"> Withdraw
+  </button>
+</form>
+
+
   <div class="row fieldRow">
     <div class="col-sm-6" style="color: #0450a0">
       <!-- <label >Address H/No.<span>*</span></label> -->
@@ -137,34 +168,3 @@
     </div>
   </div>
 
-  <div class="row fieldRow">
-    <div class="col-sm-6" style="color: #0450a0">
-      <label>Balance</label>
-      <input
-        [(ngModel)]="account.balance"
-        type="text"
-        class="form-control"
-        placeholder="Balance"
-        id="balance"
-        name="balance"
-        disabled
-        required
-      />
-    </div>
-    <div class="col-sm-6" style="color: #0450a0">
-      <label>Amount to be withdrawn : </label>
-      <input
-        [(ngModel)]="account.withdrawAmount"
-        type="text"
-        class="form-control"
-        id="withdrawamount"
-        name="withdrawamount"
-        required
-      />
-    </div>
-  </div>
-</form>
-
-<button (click)="update()" class="btn btn-primary btn-block">
-  Withdraw and Continue
-</button>
