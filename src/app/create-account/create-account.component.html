@@ -28,9 +28,22 @@
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6">
-      <label>Address H/No.<span>*</span></label>
-      <input [(ngModel)]='account.address.houseNumber' class="form-control" id='hname'  name="hname" required>
+      <label >Email Id</label>
+      <input [(ngModel)]='account.email'  type="text" class="form-control" id='email'
+        name="email" required>
+    </div>
 
+    <div class="col-sm-6">
+      <label>Mobile Number<span>*</span></label>
+      <input [(ngModel)]='account.mobileNumber' class="form-control" id='mobile'  name="mobile" required>
+
+    </div>
+  </div>
+  <div class="row fieldRow">
+    <div class="col-sm-6">
+      <label >Address H/No.<span>*</span></label>
+      <input [(ngModel)]='account.address.houseNumber' maxlength=100 type="text" class="form-control" id='house'
+        name="name" required>
     </div>
 
     <div class="col-sm-6">

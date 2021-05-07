@@ -3,6 +3,8 @@ export class Account{
   id:String="";
   number:String='';
   firstName:string = '';
+  mobileNumber:string="";
+  email:string='';
   lastName:string='';
   balance:number=0.0;
   depositAmount:number=0.0;

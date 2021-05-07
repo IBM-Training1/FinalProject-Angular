@@ -3,7 +3,7 @@
   <a
     class="nav-link ml-auto"
     style="padding-top: 0px;float:right;padding-right: 23px;"
-    routerLink="/employeeland"
+    routerLink="/land"
     routerLinkActive="active"
     ><b>Back</b></a
   >
@@ -32,6 +32,19 @@
     <div class="col-sm-6">
       <label>Last Name</label>
       <input [(ngModel)]='account.lastName' class="form-control" id='lname' name="lname">
+
+    </div>
+  </div>
+  <div class="row fieldRow" style="color:#0450a0" >
+    <div class="col-sm-6">
+      <label >Email Id</label>
+      <input [(ngModel)]='account.email'  type="text" class="form-control" id='email'
+        name="email" required>
+    </div>
+
+    <div class="col-sm-6">
+      <label>Mobile Number</label>
+      <input [(ngModel)]='account.mobileNumber' class="form-control" id='mobile'  name="mobile" required>
 
     </div>
   </div>

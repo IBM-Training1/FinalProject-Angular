@@ -24,6 +24,15 @@ export class CreateAccountComponent implements OnInit {
     else if (!this.account.lastName.trim()) {
       swal.fire("Please provide Last Name");
     }
+    else if (!this.account.email.trim()) {
+      swal.fire("Please provide email id");
+    }
+    else if (!this.account.mobileNumber.trim()) {
+      swal.fire("Please provide mobile number");
+    }
+    else if (!this.account.address.houseNumber.trim()) {
+      swal.fire("Please provide house number");
+    }
 
     else if (!this.account.address.city.trim()) {
       swal.fire("Please provide City Name");
@@ -31,10 +40,7 @@ export class CreateAccountComponent implements OnInit {
     else if (!this.account.address.state.trim()) {
       swal.fire("Please provide State");
     }
-    else if (!this.account.address.pinCode.trim()) {
-      swal.fire("Please provide pincode");
-    }
-    else if (this.account.address.pinCode.length < 6 || this.account.address.pinCode.length > 6) {
+    else if (this.account.address.pinCode.length<6 || this.account.address.pinCode.length>6) {
       swal.fire("Required length for pin code should be 6");
     }
     else if (!this.account.balance) {
