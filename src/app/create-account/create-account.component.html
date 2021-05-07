@@ -15,9 +15,9 @@
   <br>
   <div class="row fieldRow">
     <div class="col-sm-6">
-      <label >First Name<span>*</span></label>
-      <input [(ngModel)]='account.firstName' maxlength=100 type="text" class="form-control" id='fname'
-        name="name" required>
+      <label>First Name<span>*</span></label>
+      <input [(ngModel)]='account.firstName' class="form-control" id='fname'  name="fname" required>
+
     </div>
 
     <div class="col-sm-6">
@@ -28,9 +28,9 @@
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6">
-      <label >Address H/No.<span>*</span></label>
-      <input [(ngModel)]='account.address.houseNumber' maxlength=100 type="text" class="form-control" id='house'
-        name="name" required>
+      <label>Address H/No.<span>*</span></label>
+      <input [(ngModel)]='account.address.houseNumber' class="form-control" id='hname'  name="hname" required>
+
     </div>
 
     <div class="col-sm-6">
@@ -42,9 +42,9 @@
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6">
-      <label >State<span>*</span></label>
-      <input [(ngModel)]='account.address.state' maxlength=100 type="text" class="form-control"
-        name="name" required>
+      <label>State<span>*</span></label>
+      <input [(ngModel)]='account.address.state' class="form-control" id='sname'  name="sname" required>
+
     </div>
 
     <div class="col-sm-6">
@@ -78,9 +78,10 @@
   <div class="row fieldRow">
     <div class="col-sm-6">
       <label >Balance<span>*</span></label>
-      <input [(ngModel)]='account.balance' maxlength="8" type="text" class="form-control"
-        name="name" required>
+      <input [(ngModel)]='account.balance' class="form-control" id='balancer'  name="balance" minlength="12" maxlength="17">
+
     </div>
+
     <div class="col-sm-6">
       <label >AccountNumber<span>*</span></label>
       <input [(ngModel)]='account.number' class="form-control" id='number'  name="number" minlength="12" maxlength="17">
