@@ -47,9 +47,9 @@
   <div class="col-sm-6">
     <label >Status<span>*</span></label>
     <select [(ngModel)]='account.status' class="form-control" id='status' name="status">
-      <option value="ACTIVE">ACTIVE</option>
-      <option value="INACTIVE">INACTIIVE</option>
-      <option value="CLOSED">CLOSED</option>
+      <option value="ACTIVE" >ACTIVE</option>
+      <option value="INACTIVE" disabled>INACTIIVE</option>
+      <option value="CLOSED" disabled>CLOSED</option>
     </select>
   </div>
 
@@ -73,12 +73,12 @@
     </div>
     <div class="col-sm-6">
       <label >AccountNumber<span>*</span></label>
-      <input [(ngModel)]='account.number' class="form-control" id='number'  name="number">
+      <input [(ngModel)]='account.number' class="form-control" id='number'  name="number" minlength="12" maxlength="17">
 
     </div>
   </div>
 
-
+  <button (click)='save()' class="btn btn-primary btn-block" style="margin-bottom: 50px;width:100%">Save</button>
 </form>
 
-<button (click)='save()' class="btn btn-primary btn-block" style="margin-bottom: 50px;">Save</button>
+
