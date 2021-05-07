@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Account } from '../Account';
 import { AccountService } from '../account.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-deposit',
   templateUrl: './deposit.component.html',
@@ -61,41 +62,20 @@ export class DepositComponent implements OnInit {
 
       this.accountArray[response];
 
-      alert("Amount Deposited")
-      this.getAccountbyNumber(this.account.number)
+      Swal.fire({
+        title:'Thank you for banking with us...!',
+        text: "Amount Deposited : " + this.account.depositAmount + "\n Available Balance : " + this.account.balance+ "\n Account Number : "+ this.account.number,
+        icon: 'success'
+      });
     },
 
       error => {
         console.log(error);
-        alert("Failed!");
+        Swal.fire("Error occured..! \n Try Again");
 
       })
   }
-  getAccountbyNumber(number:any)
-  {
-    const accountNumber =number;
-      if(accountNumber!=null){
-        const promise = this.accountService.getAccountbyNumber(accountNumber);
-      promise.subscribe(response=> {
-        this.accountResult = [response];
-        if (this.accountResult!=0) {
-          this.accountArray = this.accountResult;
-          console.log(response);
-
-        }
-        else {
-          alert("Date not found for account number:  "+number);
-        }
-      },
-        error => {
-          console.log(error);
-          alert('error happened..')
-        });
-      }
-
-
-  }
-  ngOnInit(): void {
+    ngOnInit(): void {
   }
 
 
