@@ -1,4 +1,14 @@
+<nav style="background-color: rgb(230, 227, 227);height: 25px;">
 
+    <a
+      class="nav-link ml-auto"
+      style="padding-top: 0px;float:right;padding-right: 23px;"
+      routerLink="/"
+      routerLinkActive="active"
+      ><b>Back</b></a
+    >
+
+</nav>
 
 <form class="createAccount" id='createAccount'>
   <h5 style="font-weight: bold;font-size:x-large;">Create Account</h5>
@@ -39,7 +49,7 @@
 
     <div class="col-sm-6">
       <label >Pin Code <span>*</span> </label>
-      <input [(ngModel)]='account.address.pinCode' class="form-control"  name="lname">
+      <input [(ngModel)]='account.address.pinCode' class="form-control" maxlength="6" minlength="6" name="lname">
 
     </div>
   </div>
@@ -48,7 +58,7 @@
     <label >Status<span>*</span></label>
     <select [(ngModel)]='account.status' class="form-control" id='status' name="status">
       <option value="ACTIVE" >ACTIVE</option>
-      <option value="INACTIVE" disabled>INACTIIVE</option>
+      <option value="INACTIVE" disabled>INACTIVE</option>
       <option value="CLOSED" disabled>CLOSED</option>
     </select>
   </div>
