@@ -34,7 +34,7 @@ export class SearchAccountComponent implements OnInit {
       },
         error => {
           console.log(error);
-          alert('error happened..')
+          alert('Enter Account Number')
         });
       }
 

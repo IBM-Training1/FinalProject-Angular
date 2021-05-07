@@ -37,7 +37,7 @@ export class CustomerUpdateComponent implements OnInit {
       },
         (      error: any) =>{
         console.log(error);
-        alert("error");
+        alert("Enter a valid account number");
       }
 
         )

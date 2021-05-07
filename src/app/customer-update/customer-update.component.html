@@ -26,12 +26,25 @@
     <div class="col-sm-6">
       <label >First Name</label>
       <input [(ngModel)]='account.firstName' maxlength=100 type="text" class="form-control" id='fname'
-        placeholder="First Name" name="name" required>
+         name="name" required>
     </div>
 
     <div class="col-sm-6" style="color:  #0450a0;">
       <label>Last Name</label>
-      <input [(ngModel)]='account.lastName' class="form-control" id='lname' placeholder="Last Name" name="lname">
+      <input [(ngModel)]='account.lastName' class="form-control" id='lname' name="lname">
+
+    </div>
+  </div>
+  <div class="row fieldRow" style="color:  #0450a0;">
+    <div class="col-sm-6">
+      <label >Email Id</label>
+      <input [(ngModel)]='account.email'  type="text" class="form-control" id='email'
+        name="email" required>
+    </div>
+
+    <div class="col-sm-6">
+      <label>Mobile Number<span>*</span></label>
+      <input [(ngModel)]='account.mobileNumber' class="form-control" id='mobile'  name="mobile" required>
 
     </div>
   </div>
@@ -39,26 +52,26 @@
     <div class="col-sm-6" style="color:  #0450a0;">
       <label >Address H/No.</label>
       <input [(ngModel)]='account.address.houseNumber' maxlength=100 type="text" class="form-control" id='house'
-        placeholder="Address" name="housename" id="housename" required>
+         name="housename" id="housename" required>
     </div>
 
     <div class="col-sm-6" style="color:  #0450a0;">
 
       <label >City</label>
-      <input [(ngModel)]='account.address.city' class="form-control" placeholder="City" name="City" id="city">
+      <input [(ngModel)]='account.address.city' class="form-control" name="City" id="city">
 
     </div>
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6" style="color:  #0450a0;">
       <label >State</label>
-      <input [(ngModel)]='account.address.state' maxlength=100 type="text" class="form-control" placeholder="State"
+      <input [(ngModel)]='account.address.state' maxlength=100 type="text" class="form-control"
         name="state" id="state" required>
     </div>
 
     <div class="col-sm-6" style="color:  #0450a0;">
       <label >Pin Code</label>
-      <input [(ngModel)]='account.address.pinCode' class="form-control" placeholder="Pincode" id="pincode" name="pincode">
+      <input [(ngModel)]='account.address.pinCode' class="form-control" id="pincode" name="pincode">
 
     </div>
   </div>
@@ -87,7 +100,7 @@
   <div class="row fieldRow">
     <div class="col-sm-6" style="color:  #0450a0;">
       <label >Balance</label>
-      <input [(ngModel)]='account.balance' maxlength=100 type="text" class="form-control" placeholder="Balance"
+      <input [(ngModel)]='account.balance' maxlength=100 type="text" class="form-control"
          id="balance" name="balance" disabled required>
     </div>
 
