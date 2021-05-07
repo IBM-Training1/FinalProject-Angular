@@ -1,33 +1,33 @@
 <form class="createAccount" id='createAccount'>
-  <h5>Deposit</h5>
+  <h5 style="margin-top: 30px;font-weight: bold;font-size:x-large;color: #0450a0">Deposit</h5>
   <br>
-  <div class="row fieldRow ">
+  <div class="row fieldRow "style="color:#0450a0">
     <div class="col-sm-12">
       <label for="lname">AccountNumber<span>*</span></label>
-      <input [(ngModel)]='account.number' class="form-control" id='number' placeholder="number" name="number">
+      <input [(ngModel)]='account.number' class="form-control" id='number' name="number">
       <br>
 
-      <button class="btn btn-primary" (click)="searchAccountByNumber(account.number)">Search</button>
+      <button class="btn btn-primary" (click)="searchAccountByNumber(account.number)" style="width:100%">Search</button>
 
     </div>
   </div>
-  <div class="row fieldRow">
+  <div class="row fieldRow" style="color:#0450a0">
     <div class="col-sm-6">
       <label>First Name<span>*</span></label>
       <input [(ngModel)]='account.firstName' maxlength=100 type="text" class="form-control" id='fname'
-        placeholder="First Name" name="name" required>
+         name="name" required>
     </div>
 
     <div class="col-sm-6">
       <label>Last Name<span>*</span></label>
-      <input [(ngModel)]='account.lastName' class="form-control" id='lname' placeholder="Last Name" name="lname">
+      <input [(ngModel)]='account.lastName' class="form-control" id='lname' name="lname">
     </div>
 
-    <div class="col-sm-12">
+    <div class="col-sm-12"style="margin-top:10px">
       <label>Amount to deposit<span>*</span></label>
       <input [(ngModel)]='account.depositAmount' class="form-control" id='dAmount' name="amount">
 
-
+      <button (click)='deposit()' class="btn btn-primary btn-block"style="width:100%;margin-top:20px">Deposit</button>
 
   <!-- -----------------Disabled------------------------------ -->
     </div>
@@ -81,5 +81,41 @@
     </div>
   </div>
 </form>
+<h2 style="text-align: center;">Deposit Detail</h2>
+<br>
+<br>
+<p style="font-size:larger;">Amount Deposited : {{this.account.depositAmount.valueOf()}}</p>
 
-<button (click)='deposit()' class="btn btn-primary btn-block">Deposit</button>
+
+
+<div class="table-responsive">
+
+  <table class="table table-striped table-bordered">
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>H/No.</th>
+
+      <th>City</th>
+
+      <th>Status</th>
+      <th>Type</th>
+      <th>Balance</th>
+
+
+    </tr>
+    <tr *ngFor='let acc of accountArray'>
+      <td>{{acc.firstName}}</td>
+      <td>{{acc.lastName}}</td>
+      <td>{{acc.address.houseNumber}}</td>
+
+      <td>{{acc.address.city}}</td>
+
+      <td>{{acc.status}}</td>
+      <td>{{acc.type}}</td>
+      <td>{{acc.balance}}</td>
+
+
+    </tr>
+  </table>
+  </div>
