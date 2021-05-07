@@ -16,6 +16,7 @@ export class CreateAccountComponent implements OnInit {
   address:Address =new Address();
   accountArray:any;
   constructor(private accountservice: AccountService) { }
+
    save(){
 
     if (!this.account.firstName.trim()) {
@@ -34,14 +35,18 @@ export class CreateAccountComponent implements OnInit {
     else if (!this.account.address.pinCode.trim()) {
       swal.fire("Please provide pincode");
     }
+    else if (this.account.address.pinCode.length<6 || this.account.address.pinCode.length>6) {
+      swal.fire("Required length for pin code should be 6");
+    }
     else if (!this.account.balance) {
       swal.fire("Please provide Balance");
     }
+
     else if (!this.account.number) {
       swal.fire("Please provide Account Number");
     }
     else if (this.account.number.length<12 || this.account.number.length>17) {
-      alert("Required lenth for Account Numbr should be between 12 to 17");
+      swal.fire("Required length for Account Number should be between 12 to 17");
     }
     else {
       this.account.status = 'ACTIVE';
