@@ -26,70 +26,111 @@ export class WithdrawComponent implements OnInit {
       observable.subscribe(response => {
         this.accountArray = response;
         this.currentStatus = this.accountArray.status;
-        console.log("success");
         if (this.accountArray) {
           this.account = this.accountArray
         }
         else {
-          alert("Enter a valid account number");
+          Swal.fire({
+            text: "Enter a valid account number",
+            icon: 'warning'
+          });
         }
       },
         (error: any) => {
           console.log(error);
-          alert("error");
+          Swal.fire({
+            text: "Error occured...! Try again",
+            icon: 'error'
+          });
         })
     }
     else {
-      alert("Please enter account number");
+      Swal.fire({
+        text: "Enter a valid account number",
+        icon: 'warning',
+      })
     }
   }
 
   update() {
+    if (this.account.number) {
 
+      if (this.account.withdrawAmount) {
 
-if(this.account.withdrawAmount==0){
-  alert("cannot withdraw")
-}
- else if (confirm("Are u sure you want to withdraw Rs:" + this.account.withdrawAmount + "?")) {
-      if (this.account.balance >= this.account.withdrawAmount) {
+        if (this.account.withdrawAmount != 0) {
 
-        this.account.balance = this.account.balance - this.account.withdrawAmount;
+          if (this.account.balance >= this.account.withdrawAmount) {
 
+            Swal.fire({
+              title: 'Confirm Withdraw?',
+              text: 'Are you sure about withdrawing Rs:' + this.account.withdrawAmount + '?',
+              showDenyButton: true,
+              confirmButtonText: `Withdraw`,
+              denyButtonText: `Cancel`,
+            }).then((result) => {
 
-        const promise = this.accountService.updateAccount(this.account, this.account.id);
-        promise.subscribe((response: any) => {
-          console.log(response);
-          this.accountArray[response];
+              if (result.isConfirmed) {
 
+                this.account.balance = this.account.balance - this.account.withdrawAmount;
+                const promise = this.accountService.updateAccount(this.account, this.account.id);
+                promise.subscribe((response: any) => {
+                  console.log(response);
+                  this.accountArray[response];
+
+                  Swal.fire({
+                    title: 'Thank you for banking with us...!',
+                    text: "Amount Withdrawn : " + this.account.withdrawAmount + "\n Available Balance : " + this.account.balance,
+                    icon: 'success'
+                  });
+                },
+                  error => {
+                    console.log(error);
+                    Swal.fire("Error occured..! \n Try Again");
+                  })
+
+              } else if (result.isDenied) {
+                Swal.fire({
+                  text: "Your transaction is Cancelled!!!",
+                  icon: 'error'
+                });
+              }
+            })
+          }
+
+          else {
+            Swal.fire({
+              text: "Enter an amount less than or equal to " + this.account.balance,
+              icon: 'warning',
+            });
+          }
+        }
+
+        else{
           Swal.fire({
-            title:'Thank you for banking with us...!',
-            text: "Amount Withdrawn : " + this.account.withdrawAmount + "\n Available Balance : " + this.account.balance,
-            icon: 'success'
+            text: "Enter an amount greater than zero ",
+            icon: 'warning',
           });
-        },
-          error => {
-            console.log(error);
-            Swal.fire("Error occured..! \n Try Again");
-          })
+        }
       }
+
       else {
-        this.refresh();
         Swal.fire({
-          text: "Enter an amount less than or equal to " + this.account.balance,
+          text: "Please enter a valid amount to withdraw",
           icon: 'warning'
-        });
+        })
       }
     }
+
     else {
       Swal.fire({
-        text: "Your transaction is Cancelled!!!",
-        icon: 'error'
-      });
+        text: "Enter a valid account number",
+        icon: 'warning',
+      })
     }
   }
-  refresh(): void {
-    window.location.reload();}
+
   ngOnInit(): void {
   }
 
 }
+
