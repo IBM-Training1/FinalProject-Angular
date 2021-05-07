@@ -22,7 +22,6 @@ import { CustomerlandComponent } from './customerland/customerland.component';
 import { DepositComponent } from './deposit/deposit.component';
 import { CustomerUpdateComponent } from "./customer-update/customer-update.component";
 import { WithdrawComponent } from './withdraw/withdraw.component';
-import { DepositlandComponent } from './depositland/depositland.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -60,7 +59,6 @@ const appRoutes: Routes = [
     DepositComponent,
     CustomerUpdateComponent,
     WithdrawComponent,
-    DepositlandComponent,
   ],
   imports: [RouterModule.forRoot(
     appRoutes,

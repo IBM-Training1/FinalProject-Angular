@@ -1,3 +1,14 @@
+<nav style="background-color: rgb(230, 227, 227);height: 25px;">
+
+  <a
+    class="nav-link ml-auto"
+    style="padding-top: 0px;float:right;padding-right: 23px;"
+    routerLink="/customer"
+    routerLinkActive="active"
+    ><b>Back</b></a
+  >
+
+</nav>
 <form class="createAccount" id='createAccount'style="margin-top:30px" >
   <h5 style="font-weight: bold;font-size:x-large; color:  #0450a0;">Update Account</h5>
   <br>
@@ -13,20 +24,20 @@
   </div>
   <div class="row fieldRow" style="color:  #0450a0;">
     <div class="col-sm-6">
-      <label >First Name<span>*</span></label>
+      <label >First Name</label>
       <input [(ngModel)]='account.firstName' maxlength=100 type="text" class="form-control" id='fname'
         placeholder="First Name" name="name" required>
     </div>
 
     <div class="col-sm-6" style="color:  #0450a0;">
-      <label>Last Name<span>*</span></label>
+      <label>Last Name</label>
       <input [(ngModel)]='account.lastName' class="form-control" id='lname' placeholder="Last Name" name="lname">
 
     </div>
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6" style="color:  #0450a0;">
-      <label >Address H/No.<span>*</span></label>
+      <label >Address H/No.</label>
       <input [(ngModel)]='account.address.houseNumber' maxlength=100 type="text" class="form-control" id='house'
         placeholder="Address" name="housename" id="housename" required>
     </div>
@@ -46,7 +57,7 @@
     </div>
 
     <div class="col-sm-6" style="color:  #0450a0;">
-      <label >Pin Code <span>*</span> </label>
+      <label >Pin Code</label>
       <input [(ngModel)]='account.address.pinCode' class="form-control" placeholder="Pincode" id="pincode" name="pincode">
 
     </div>
@@ -82,8 +93,8 @@
 
   </div>
 
+  <button (click)='update()' class="btn btn-primary btn-block" style="margin-bottom: 50px;width: 100%;" >Save</button>
 
 </form>
 
-<button (click)='update()' class="btn btn-primary btn-block" style="margin-bottom: 50px;" >Save</button>
 
