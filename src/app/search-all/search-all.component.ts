@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Account } from '../Account';
 import { AccountService } from '../account.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-search-all',
@@ -19,14 +20,18 @@ export class SearchAllComponent implements OnInit {
       console.log(response);
       this.accountArray = [response];
       if (this.accountArray[0] == undefined) {
-        alert("No Account found")
+        swal.fire({
+          icon:"error",
+          text:"No Account found for account number : "+ number})
 
       } else {
         alert("Displaying..")
       }
     },
       error => {
-        alert("Error Occured. Not able to search..");
+        swal.fire({
+          icon:"error",
+          text:"Error Occured. Not able to search"});
       })
 
   }

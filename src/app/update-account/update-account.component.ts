@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Account} from '../Account';
+import { Account } from '../Account';
 import { AccountService } from '../account.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-update-account',
@@ -8,61 +9,76 @@ import { AccountService } from '../account.service';
   styleUrls: ['./update-account.component.css']
 })
 export class UpdateAccountComponent implements OnInit {
-  title :String ="Update Account Details";
-  account:Account = new Account();
-  accountArray:any;
-  currentStatus:any;
+  title: String = "Update Account Details";
+  account: Account = new Account();
+  accountArray: any;
+  currentStatus: any;
 
 
-  constructor(private accountService : AccountService) { }
+  constructor(private accountService: AccountService) { }
+  searchAccountByNumber(number: any) {
 
-  searchAccountByNumber(number:any){
-
-    let URL='http://localhost:8081/account/';
-    let accountNumber=(<HTMLInputElement>document.getElementById('number')).value;
-    if(accountNumber){
-      URL= URL + 'number/' +accountNumber;
+    let URL = 'http://localhost:8081/account/';
+    let accountNumber = (<HTMLInputElement>document.getElementById('number')).value;
+    if (accountNumber) {
+      URL = URL + 'number/' + accountNumber;
       const observable = this.accountService.searchAccountByNumber1(accountNumber);
-      observable.subscribe (response =>{
-        this.accountArray= response;
-        this.currentStatus=this.accountArray.status;
-        console.log("sucess");
-        if(this.accountArray){
-          this.account=this.accountArray
+      observable.subscribe(response => {
+        this.accountArray = response;
+        // this.currentStatus = this.accountArray.status;
+        if (this.accountArray) {
+          this.account = this.accountArray
         }
-        else{
-          alert("Enter a valid account number");
+        else {
+          swal.fire({
+            text: "Enter a valid account number",
+            icon: 'warning'
+          });
         }
-
       },
-        (      error: any) =>{
-        console.log(error);
-        alert("error");
-      }
-
-        )
-
+        (error: any) => {
+          console.log(error);
+          swal.fire({
+            text: "Error occured...! Try again",
+            icon: 'error'
+          });
+        })
     }
-    else{
-      alert("Please enter account number");
+    else {
+      swal.fire({
+        text: "Please enter account number",
+        icon: 'warning',
+      })
     }
-
   }
 
-  update(){
-    const promise = this.accountService.updateAccount(this.account,this.account.id);
-    promise.subscribe((response:any)=>{
+  update() {
+    const promise = this.accountService.updateAccount(this.account, this.account.id);
+    promise.subscribe((response: any) => {
       console.log(response);
       this.accountArray[response];
 
-      alert("Account is Updated")
+      swal.fire({title: 'Do you want to update the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: `Update`,
+      denyButtonText: `Don't Update`,
+    }).then((result) => {
+
+      if (result.isConfirmed) {
+        swal.fire('Updated!', '', 'success')
+      } else if (result.isDenied) {
+        swal.fire('Changes are not updated', '', 'info')
+      }
+    })
+
     },
 
-    error => {
-      console.log(error);
-      alert("Update not possible");
+      error => {
+        console.log(error);
+        alert("Update not possible");
 
-    })
+      })
   }
 
   ngOnInit(): void {
