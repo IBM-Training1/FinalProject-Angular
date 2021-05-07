@@ -25,7 +25,6 @@ export class WithdrawComponent implements OnInit {
       const observable = this.accountService.searchAccountByNumber1(accountNumber);
       observable.subscribe(response => {
         this.accountArray = response;
-        this.currentStatus = this.accountArray.status;
         if (this.accountArray) {
           this.account = this.accountArray
         }
