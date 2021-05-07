@@ -45,8 +45,11 @@ export class WithdrawComponent implements OnInit {
 
   update() {
 
-    if (confirm("Are u sure you want to withdraw Rs:" + this.account.withdrawAmount + "?")) {
 
+if(this.account.withdrawAmount==0){
+  alert("cannot withdraw")
+}
+ else if (confirm("Are u sure you want to withdraw Rs:" + this.account.withdrawAmount + "?")) {
       if (this.account.balance >= this.account.withdrawAmount) {
 
         this.account.balance = this.account.balance - this.account.withdrawAmount;
@@ -62,18 +65,21 @@ export class WithdrawComponent implements OnInit {
         },
           error => {
             console.log(error);
-            alert("Update not possible");
+            alert("Cannot withdraw");
           })
       }
       else {
+        this.refresh();
         alert("Enter an amount less than or equal to " + this.account.balance);
+        alert("Your transaction is Cancelled!!!");
       }
     }
     else {
       alert("Your transaction is Cancelled!!!");
     }
   }
-
+  refresh(): void {
+    window.location.reload();}
   ngOnInit(): void {
   }
 

@@ -40,7 +40,9 @@ export class CreateAccountComponent implements OnInit {
     else if (!this.account.number) {
       swal.fire("Please provide Account Number");
     }
-
+    else if (this.account.number.length<12 || this.account.number.length>17) {
+      alert("Required lenth for Account Numbr should be between 12 to 17");
+    }
     else {
       this.account.status = 'ACTIVE';
 

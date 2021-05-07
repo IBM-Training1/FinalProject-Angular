@@ -41,6 +41,7 @@
         <label for="uname" class="mb-2 mr-sm-2"><b>Account number : </b></label>
         <br />
         <input
+        style="margin-top: 5px;"
           type="text"
           [(ngModel)]="account.number"
           class="form-control mb-2 mr-sm-2"
@@ -48,13 +49,13 @@
         />
         <button
           class="btn btn-primary btn-block searchBtn"
-          style="width: 45%"
+          style="width: 45%;margin-left: 50px;"
           (click)="searchByAccountNumber(account.number)"
         >
           Search by Account Number
         </button>
         <div class="text-center">
-          <button class="btn btn-primary btn-block searchBtn" style="width:80px ; margin-left: 150px;" (click)="ngOnInit()">
+          <button class="btn btn-primary btn-block searchBtn" style="width:80px ; margin-left: 100px;" (click)="ngOnInit()">
             Refresh
           </button>
         </div>
