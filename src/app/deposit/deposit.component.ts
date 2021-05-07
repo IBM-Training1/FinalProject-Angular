@@ -11,7 +11,7 @@ export class DepositComponent implements OnInit {
   account: Account = new Account();
   accountArray: any;
   currentStatus: any;
-
+   accountResult:any;
 
   constructor(private accountService: AccountService) { }
 
@@ -62,6 +62,7 @@ export class DepositComponent implements OnInit {
       this.accountArray[response];
 
       alert("Amount Deposited")
+      this.getAccountbyNumber(this.account.number)
     },
 
       error => {
@@ -70,7 +71,30 @@ export class DepositComponent implements OnInit {
 
       })
   }
+  getAccountbyNumber(number:any)
+  {
+    const accountNumber =number;
+      if(accountNumber!=null){
+        const promise = this.accountService.getAccountbyNumber(accountNumber);
+      promise.subscribe(response=> {
+        this.accountResult = [response];
+        if (this.accountResult!=0) {
+          this.accountArray = this.accountResult;
+          console.log(response);
 
+        }
+        else {
+          alert("Date not found for account number:  "+number);
+        }
+      },
+        error => {
+          console.log(error);
+          alert('error happened..')
+        });
+      }
+
+
+  }
   ngOnInit(): void {
   }
 
