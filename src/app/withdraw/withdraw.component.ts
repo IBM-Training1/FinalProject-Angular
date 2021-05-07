@@ -39,7 +39,7 @@ export class WithdrawComponent implements OnInit {
         (error: any) => {
           console.log(error);
           Swal.fire({
-            text: "Error occured...! Try again",
+            text: "Enter a valid Account Number",
             icon: 'error'
           });
         })

@@ -40,7 +40,7 @@ export class DepositComponent implements OnInit {
       },
         (error: any) => {
           Swal.fire({
-            text: "Error occured...! Try again",
+            text: "Enter a valid Account Number",
             icon: 'error'
           });
         }
