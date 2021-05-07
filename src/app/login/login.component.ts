@@ -19,7 +19,11 @@ export class LoginComponent {
   refresh(): void {
     window.location.reload();}
   validateLogin() {
-    if(this.user.username=="abhilasha@gmail.com" && this.user.password=="singh123"){
+    if(this.user.username=="abhilasha@gmail.com" && this.user.password=="singh123"||
+    this.user.username=="rinky@gmail.com" && this.user.password=="rinky123"||
+    this.user.username=="akanksha@gmail.com" && this.user.password=="akku123"||
+    this.user.username=="rupak@gmail.com" && this.user.password=="rupak123"||
+    this.user.username=="henna@gmail.com" && this.user.password=="heena123"){
         this.loginService.validateLogin(this.user).subscribe(result => {
         console.log('result is ', result);
 
