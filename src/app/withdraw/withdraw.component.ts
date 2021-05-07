@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Account } from '../Account';
 import { AccountService } from '../account.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-withdraw',
@@ -45,11 +46,14 @@ export class WithdrawComponent implements OnInit {
 
   update() {
 
-    if (confirm("Are u sure you want to withdraw Rs:" + this.account.withdrawAmount + "?")) {
 
-    if (this.account.balance >= this.account.withdrawAmount) {
+if(this.account.withdrawAmount==0){
+  alert("cannot withdraw")
+}
+ else if (confirm("Are u sure you want to withdraw Rs:" + this.account.withdrawAmount + "?")) {
+      if (this.account.balance >= this.account.withdrawAmount) {
 
-      this.account.balance = this.account.balance - this.account.withdrawAmount;
+        this.account.balance = this.account.balance - this.account.withdrawAmount;
 
 
         const promise = this.accountService.updateAccount(this.account, this.account.id);
@@ -57,22 +61,34 @@ export class WithdrawComponent implements OnInit {
           console.log(response);
           this.accountArray[response];
 
-          alert("Rs: "+ this.account.withdrawAmount + "  is withdrawn" );
+          Swal.fire({
+            title:'Thank you for banking with us...!',
+            text: "Amount Withdrawn : " + this.account.withdrawAmount + "\n Available Balance : " + this.account.balance,
+            icon: 'success'
+          });
         },
           error => {
             console.log(error);
-            alert("Update not possible");
+            Swal.fire("Error occured..! \n Try Again");
           })
       }
       else {
-        alert("Enter an amount less than or equal to " + this.account.balance);
+        this.refresh();
+        Swal.fire({
+          text: "Enter an amount less than or equal to " + this.account.balance,
+          icon: 'warning'
+        });
       }
     }
     else {
-      alert("Your transaction is Cancelled!!!");
+      Swal.fire({
+        text: "Your transaction is Cancelled!!!",
+        icon: 'error'
+      });
     }
   }
-
+  refresh(): void {
+    window.location.reload();}
   ngOnInit(): void {
   }
 

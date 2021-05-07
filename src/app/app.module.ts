@@ -22,23 +22,22 @@ import { CustomerlandComponent } from './customerland/customerland.component';
 import { DepositComponent } from './deposit/deposit.component';
 import { CustomerUpdateComponent } from "./customer-update/customer-update.component";
 import { WithdrawComponent } from './withdraw/withdraw.component';
-import { WithdrawlandComponent } from './withdrawland/withdrawland.component';
 import { DepositlandComponent } from './depositland/depositland.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  {path:'About', component:AboutUsComponent},
-  {path:'Help', component:HelpComponent},
-  {path:'login',component:LoginComponent},
-  {path:'createaccount', component:CreateAccountComponent},
-  {path:'searchaccount',component:SearchAccountComponent},
-  {path:'land', component:EmployeelandComponent},
-  {path:'updateEmployee',component:UpdateAccountComponent},
-  {path:'customer', component:CustomerlandComponent},
-  {path:'searchall', component:SearchAllComponent},
-  {path:'update', component:CustomerUpdateComponent},
-  {path:'withdraw', component:WithdrawComponent},
-  {path:'deposit', component:DepositComponent},
+  { path: 'About', component: AboutUsComponent },
+  { path: 'Help', component: HelpComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'createaccount', component: CreateAccountComponent },
+  { path: 'searchaccount', component: SearchAccountComponent },
+  { path: 'land', component: EmployeelandComponent },
+  { path: 'updateEmployee', component: UpdateAccountComponent },
+  { path: 'customer', component: CustomerlandComponent },
+  { path: 'searchall', component: SearchAllComponent },
+  { path: 'update', component: CustomerUpdateComponent },
+  { path: 'withdraw', component: WithdrawComponent },
+  { path: 'deposit', component: DepositComponent },
 
 
 ];
@@ -61,7 +60,6 @@ const appRoutes: Routes = [
     DepositComponent,
     CustomerUpdateComponent,
     WithdrawComponent,
-    WithdrawlandComponent,
     DepositlandComponent,
   ],
   imports: [RouterModule.forRoot(
