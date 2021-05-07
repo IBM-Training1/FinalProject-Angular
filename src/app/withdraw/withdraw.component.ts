@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Account } from '../Account';
 import { AccountService } from '../account.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-withdraw',
@@ -60,22 +61,30 @@ if(this.account.withdrawAmount==0){
           console.log(response);
           this.accountArray[response];
 
-          var alertMessage = ("Thank you for banking with us...! \n First Name : " + this.account.firstName + "\n Last Name : " + this.account.lastName + "\n Amount Withdrawn : " + this.account.withdrawAmount + "\n Available Balance : " + this.account.balance)
-          alert(alertMessage);
+          Swal.fire({
+            title:'Thank you for banking with us...!',
+            text: "Amount Withdrawn : " + this.account.withdrawAmount + "\n Available Balance : " + this.account.balance,
+            icon: 'success'
+          });
         },
           error => {
             console.log(error);
-            alert("Cannot withdraw");
+            Swal.fire("Error occured..! \n Try Again");
           })
       }
       else {
         this.refresh();
-        alert("Enter an amount less than or equal to " + this.account.balance);
-        alert("Your transaction is Cancelled!!!");
+        Swal.fire({
+          text: "Enter an amount less than or equal to " + this.account.balance,
+          icon: 'warning'
+        });
       }
     }
     else {
-      alert("Your transaction is Cancelled!!!");
+      Swal.fire({
+        text: "Your transaction is Cancelled!!!",
+        icon: 'error'
+      });
     }
   }
   refresh(): void {
