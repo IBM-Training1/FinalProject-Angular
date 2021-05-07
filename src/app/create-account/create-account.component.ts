@@ -25,6 +25,12 @@ export class CreateAccountComponent implements OnInit {
     else if (!this.account.lastName.trim()) {
       swal.fire("Please provide Last Name");
     }
+    else if (!this.account.email.trim()) {
+      swal.fire("Please provide email id");
+    }
+    else if (!this.account.mobileNumber.trim()) {
+      swal.fire("Please provide mobile number");
+    }
 
     else if (!this.account.address.city.trim()) {
       swal.fire("Please provide City Name");
