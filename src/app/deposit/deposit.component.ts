@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Account } from '../Account';
 import { AccountService } from '../account.service';
 import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-deposit',
   templateUrl: './deposit.component.html',
@@ -12,7 +13,7 @@ export class DepositComponent implements OnInit {
   account: Account = new Account();
   accountArray: any;
   currentStatus: any;
-   accountResult:any;
+  accountResult: any;
 
   constructor(private accountService: AccountService) { }
 
@@ -31,51 +32,100 @@ export class DepositComponent implements OnInit {
           this.account = this.accountArray
         }
         else {
-          alert("Enter a valid account number");
+          Swal.fire({
+            text: "Enter a valid account number",
+            icon: 'warning'
+          });
         }
-
       },
         (error: any) => {
-          console.log(error);
-          alert("error");
+          Swal.fire({
+            text: "Error occured...! Try again",
+            icon: 'error'
+          });
         }
-
       )
-
     }
     else {
-      alert("Please enter account number");
+      Swal.fire({
+        text: "Enter a valid account number",
+        icon: 'warning',
+      })
     }
-
   }
 
   deposit() {
-    var a:number=+this.account.balance
-      var b:number=+this.account.depositAmount
-      a+=b;
-      this.accountArray.balance=a;
-      // this.account=this.accountArray;
+    if (this.account.number) {
 
-    const promise = this.accountService.updateAccount(this.account, this.account.id);
-    promise.subscribe((response: any) => {
-      console.log(response);
+      if (this.account.depositAmount) {
 
-      this.accountArray[response];
+        if (this.account.depositAmount != 0) {
 
+          Swal.fire({
+            title: 'Confirm Deposit?',
+            text: 'Are you sure about depositing Rs:' + this.account.depositAmount + '?',
+            showDenyButton: true,
+            confirmButtonText: `Deposit`,
+            denyButtonText: `Cancel`,
+          }).then((result) => {
+
+            if (result.isConfirmed) {
+
+              var a: number = +this.account.balance
+              var b: number = +this.account.depositAmount
+              a += b;
+              this.accountArray.balance = a;
+
+              const promise = this.accountService.updateAccount(this.account, this.account.id);
+              promise.subscribe((response: any) => {
+                console.log(response);
+
+                this.accountArray[response];
+
+                Swal.fire({
+                  title: 'Thank you for banking with us...!',
+                  text: "Amount Deposited : " + this.account.depositAmount + "\n Available Balance : " + this.account.balance,
+                  icon: 'success'
+                });
+              },
+
+                error => {
+                  console.log(error);
+                  Swal.fire("Error occured..! \n Try Again");
+
+                })
+            } else if (result.isDenied) {
+              Swal.fire({
+                text: "Your transaction is Cancelled!!!",
+                icon: 'error'
+              });
+            }
+          })
+        }
+
+        else {
+          Swal.fire({
+            text: "Enter an amount greater than zero ",
+            icon: 'warning',
+          });
+        }
+      }
+      else {
+        Swal.fire({
+          text: "Please enter a valid amount to withdraw",
+          icon: 'warning'
+        })
+      }
+    }
+    else {
       Swal.fire({
-        title:'Thank you for banking with us...!',
-        text: "Amount Deposited : " + this.account.depositAmount + "\n Available Balance : " + this.account.balance+ "\n Account Number : "+ this.account.number,
-        icon: 'success'
-      });
-    },
-
-      error => {
-        console.log(error);
-        Swal.fire("Error occured..! \n Try Again");
-
+        text: "Enter a valid account number",
+        icon: 'warning',
       })
+    }
+
   }
-    ngOnInit(): void {
+  ngOnInit(): void {
   }
 
 
