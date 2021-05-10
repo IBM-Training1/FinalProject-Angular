@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Account} from '../Account';
+import { Account } from '../Account';
 import { AccountService } from '../account.service';
 import swal from 'sweetalert2';
 
@@ -9,13 +9,13 @@ import swal from 'sweetalert2';
   styleUrls: ['./customer-update.component.css']
 })
 export class CustomerUpdateComponent implements OnInit {
-  title :String ="Update Account Details";
-  account:Account = new Account();
-  accountArray:any;
-  currentStatus:any;
+  title: String = "Update Account Details";
+  account: Account = new Account();
+  accountArray: any;
+  currentStatus: any;
 
 
-  constructor(private accountService : AccountService) { }
+  constructor(private accountService: AccountService) { }
   searchAccountByNumber(number: any) {
 
     let URL = 'http://localhost:8081/account/';
@@ -51,35 +51,52 @@ export class CustomerUpdateComponent implements OnInit {
       })
     }
   }
+  isNumber(n: any) {
+    return !isNaN(parseFloat(n)) && !isNaN(n - 0);
+  }
 
-  update(){
-    const promise = this.accountService.updateAccount(this.account,this.account.id);
-    promise.subscribe((response:any)=>{
-      console.log(response);
-      this.accountArray[response];
+  update() {
 
-      swal.fire({title: 'Do you want to update the changes?',
-      showDenyButton: true,
+    if (this.account.mobileNumber.length < 10 || this.account.mobileNumber.length > 10) {
+      swal.fire("Required length for mobile number is 10");
+    }
+    else if (!this.isNumber(this.account.mobileNumber)) {
+      swal.fire("Mobile number should be number!")
+    }
+    else if (!this.isNumber(this.account.address.pinCode)) {
+      swal.fire("Pincode should be number!")
+    }
+    else {
+      const promise = this.accountService.updateAccount(this.account, this.account.id);
+      promise.subscribe((response: any) => {
+        console.log(response);
+        this.accountArray[response];
 
-      confirmButtonText: `Update`,
-      denyButtonText: `Don't Update`,
-    }).then((result) => {
+        swal.fire({
+          title: 'Do you want to update the changes?',
+          showDenyButton: true,
+          confirmButtonText: `Update`,
+          denyButtonText: `Don't Update`,
+        }).then((result) => {
 
-      if (result.isConfirmed) {
-        swal.fire('Updated!', '', 'success')
-      } else if (result.isDenied) {
-        swal.fire('Changes are not updated', '', 'info')
-      }
-    })
-    },
+          if (result.isConfirmed) {
+            swal.fire('Updated!', '', 'success')
+          } else if (result.isDenied) {
+            swal.fire('Changes are not updated', '', 'info')
+          }
+        })
 
-    error => {
-      console.log(error);
-      swal.fire({
-        icon:"error",
-        text:"Update not possible"});
+      },
 
-    })
+        error => {
+          console.log(error);
+          swal.fire({
+            icon: "error",
+            text: "Update not possible"
+          });
+
+        })
+    }
   }
 
   ngOnInit(): void {
