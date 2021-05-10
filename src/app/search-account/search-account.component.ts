@@ -16,6 +16,8 @@ export class SearchAccountComponent implements OnInit {
    accountList: any;
 
   constructor(private accountservice: AccountService) { }
+
+  //--------------get details of ustomer using account number------------
   getAccountbyNumber(number:any)
   {
     const accountNumber =number;

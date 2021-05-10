@@ -16,6 +16,7 @@ export class UpdateAccountComponent implements OnInit {
 
 
   constructor(private accountService: AccountService) { }
+  //-------------fetch account details by account number----------------
   searchAccountByNumber(number: any) {
 
     let URL = 'http://localhost:8081/account/';
@@ -52,11 +53,12 @@ export class UpdateAccountComponent implements OnInit {
     }
   }
 
-
+//------check argument is number or not
   isNumber(n: any) {
     return !isNaN(parseFloat(n)) && !isNaN(n - 0);
   }
 
+  //----------------update details---------------------
   update() {
 
     if (this.account.mobileNumber.length < 10 || this.account.mobileNumber.length > 10) {

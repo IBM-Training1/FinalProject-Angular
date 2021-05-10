@@ -8,7 +8,7 @@ export class LoginService {
 	constructor(private http: HttpClient){
 
 	}
-
+//--------------------validation----------------------
 	validateLogin(user: User){
 		return this.http.post('/api/user/login',{
 			username : user.username,

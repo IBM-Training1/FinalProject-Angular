@@ -15,11 +15,12 @@ export class CreateAccountComponent implements OnInit {
   address: Address = new Address();
   accountArray: any;
   constructor(private accountservice: AccountService) { }
-
+// -------------check if argument is number or not--------------
   isNumber(n: any) {
     return !isNaN(parseFloat(n)) && !isNaN(n - 0);
   }
 
+  //------------For storing data in database----------------
   save() {
 
     if (!this.account.firstName.trim()) {
@@ -78,6 +79,7 @@ export class CreateAccountComponent implements OnInit {
     }
   }
 
+  //--------------Generating account number----------------
   generateUUID() {
     const generatedUuid1 = uuidv4();
     //const generatedUuid2 = uuidv4();

@@ -16,6 +16,7 @@ export class WithdrawComponent implements OnInit {
 
   constructor(private accountService: AccountService) { }
 
+  //----------------fetch details by account number---------------
   searchAccountByNumber(number: any) {
 
     let URL = 'http://localhost:8081/account/';
@@ -51,6 +52,7 @@ export class WithdrawComponent implements OnInit {
     }
   }
 
+  //------------------update details---------------------
   update() {
     if (this.account.status != "ACTIVE") {
       Swal.fire("Your Account is not Active!")

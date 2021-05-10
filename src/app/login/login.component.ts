@@ -17,8 +17,11 @@ export class LoginComponent {
   constructor(private loginService: LoginService) {
       this.user = new User();
   }
+  //-----to refresh the page-----------
   refresh(): void {
     window.location.reload();}
+
+    //------------to do employee login only using the credentials below---
   validateLogin() {
     if(this.user.username=="abhilasha@gmail.com" && this.user.password=="singh123"||
     this.user.username=="rinky@gmail.com" && this.user.password=="rinky123"||

@@ -7,20 +7,23 @@ const URL = 'http://localhost:8081/account/';
   providedIn: 'root'
 })
 export class AccountService {
-  updateAccount(Account: Account, id: any) {
-    return this.http.put(URL + '/' + id, Account, {
-      headers: { "content-type": 'application/json' }
-    })
-  }
 
   constructor(private http: HttpClient) { }
+
+  //--------------UPDATE methods-------------------------
+    updateAccount(Account: Account, id: any) {
+      return this.http.put(URL + '/' + id, Account, {
+        headers: { "content-type": 'application/json' }
+      })
+    }
+  //---------------POST methods----------------
   save(account: Account) {
     return this.http.post(URL, account, {
       headers: { "content-type": 'application/json' },
       responseType: "text"
     });
   }
-
+//----------------GET method--------------
   getAccountbyNumber(accountNumber: any) {
     return this.http.get(URL + 'number/' + accountNumber, {
       headers: {
@@ -29,7 +32,7 @@ export class AccountService {
       }
     });
   }
-
+//------------------GETALL method----------------
   getAllAccounts() {
     return this.http.get(URL);
   }
