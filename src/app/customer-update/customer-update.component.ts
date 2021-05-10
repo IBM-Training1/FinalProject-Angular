@@ -60,7 +60,7 @@ export class CustomerUpdateComponent implements OnInit {
 
       swal.fire({title: 'Do you want to update the changes?',
       showDenyButton: true,
-      showCancelButton: true,
+
       confirmButtonText: `Update`,
       denyButtonText: `Don't Update`,
     }).then((result) => {
