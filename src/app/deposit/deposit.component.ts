@@ -16,7 +16,7 @@ export class DepositComponent implements OnInit {
   accountResult: any;
 
   constructor(private accountService: AccountService) { }
-
+//-----------------search customer details using account number--------------
   searchAccountByNumber(number: any) {
 
     let URL = 'http://localhost:8081/account/';
@@ -53,10 +53,11 @@ export class DepositComponent implements OnInit {
     }
   }
 
+  // -------------check if argument is number or not--------------
   isNumber(n: any) {
     return !isNaN(parseFloat(n)) && !isNaN(n - 0);
   }
-
+//--------------customer can deposit certain amount which is updated in database---------------------
   deposit() {
     if (this.account.status != "ACTIVE") {
       Swal.fire("Your Account is not Active!")

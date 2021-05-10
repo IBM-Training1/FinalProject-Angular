@@ -13,7 +13,7 @@ export class SearchAllComponent implements OnInit {
   account:Account=new Account();
 
   constructor(private accountService: AccountService) { }
-
+//----------------getting details of employee using account number-----------
   searchByAccountNumber(number: any) {
     const observable = this.accountService.getAccountbyNumber(number);
     observable.subscribe(response => {
@@ -35,7 +35,7 @@ export class SearchAllComponent implements OnInit {
       })
 
   }
-
+//-------------fetch all the accounts details---------------
   ngOnInit(): void {
     const observable = this.accountService.getAllAccounts();
     observable.subscribe(response => {
