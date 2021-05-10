@@ -15,7 +15,7 @@ export class SearchAllComponent implements OnInit {
   constructor(private accountService: AccountService) { }
 
   searchByAccountNumber(number: any) {
-    const observable = this.accountService.searchByNumber(number);
+    const observable = this.accountService.getAccountbyNumber(number);
     observable.subscribe(response => {
       console.log(response);
       this.accountArray = [response];

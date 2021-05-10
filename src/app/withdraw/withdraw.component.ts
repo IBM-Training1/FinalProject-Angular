@@ -22,7 +22,7 @@ export class WithdrawComponent implements OnInit {
     let accountNumber = (<HTMLInputElement>document.getElementById('number')).value;
     if (accountNumber) {
       URL = URL + 'number/' + accountNumber;
-      const observable = this.accountService.searchAccountByNumber1(accountNumber);
+      const observable = this.accountService.getAccountbyNumber(accountNumber);
       observable.subscribe(response => {
         this.accountArray = response;
         if (this.accountArray) {
@@ -38,7 +38,7 @@ export class WithdrawComponent implements OnInit {
         (error: any) => {
           console.log(error);
           Swal.fire({
-            text: "Error occured...! Try again",
+            text: "Enter a valid Account Number",
             icon: 'error'
           });
         })

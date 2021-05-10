@@ -3,8 +3,7 @@ import { Account } from '../Account';
 import { Address } from '../Address';
 import { AccountService } from '../account.service';
 import swal from 'sweetalert2';
-
-
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-create-account',
@@ -12,12 +11,12 @@ import swal from 'sweetalert2';
   styleUrls: ['./create-account.component.css']
 })
 export class CreateAccountComponent implements OnInit {
-  account:Account = new Account();
-  address:Address =new Address();
-  accountArray:any;
+  account: Account = new Account();
+  address: Address = new Address();
+  accountArray: any;
   constructor(private accountservice: AccountService) { }
 
-   save(){
+  save() {
 
     if (!this.account.firstName.trim()) {
       swal.fire("Please provide First name");
@@ -48,26 +47,37 @@ export class CreateAccountComponent implements OnInit {
       swal.fire("Please provide Balance");
     }
 
-    else if (!this.account.number) {
-      swal.fire("Please provide Account Number");
-    }
-    else if (this.account.number.length<12 || this.account.number.length>17) {
-      swal.fire("Required length for Account Number should be between 12 to 17");
-    }
     else {
       this.account.status = 'ACTIVE';
+      this.generateUUID();
 
-     const promise = this.accountservice.save(this.account);
-      promise.subscribe(response =>{
-          console.log(response);
-          swal.fire('Account Created..')
-          this.accountArray.push(Object.assign({}, this.account));
-        },
-      error=> {
-        console.log(error);
-        swal.fire('error hapenned..')
-      })
+      const promise = this.accountservice.save(this.account);
+      promise.subscribe(response => {
+        console.log(response);
+        swal.fire({
+          title: 'Account Created',
+          text: "Your account number is :" + this.account.number,
+          icon: 'success'
+        })
+        this.accountArray.push(Object.assign({}, this.account));
+      },
+        error => {
+          console.log(error);
+          swal.fire('error hapenned..')
+        })
     }
+  }
+
+  generateUUID() {
+    const generatedUuid1 = uuidv4();
+    const generatedUuid2 = uuidv4();
+    const numericUuid1 = parseInt(generatedUuid1, 16);
+    const numericUuid2 = parseInt(generatedUuid2, 16) / 100;
+    const numericUuid3 = Math.round(numericUuid2)
+    const stringUuid1 = numericUuid1.toString();
+    const stringUuid2 = numericUuid3.toString();
+
+    this.account.number = stringUuid1 + stringUuid2;
   }
 
   ngOnInit(): void {
