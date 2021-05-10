@@ -16,6 +16,10 @@ export class CreateAccountComponent implements OnInit {
   accountArray: any;
   constructor(private accountservice: AccountService) { }
 
+  isNumber(n: any) {
+    return !isNaN(parseFloat(n)) && !isNaN(n - 0);
+  }
+
   save() {
 
     if (!this.account.firstName.trim()) {
@@ -27,8 +31,14 @@ export class CreateAccountComponent implements OnInit {
     else if (!this.account.email.trim()) {
       swal.fire("Please provide email id");
     }
-    else if (!this.account.mobileNumber.trim()) {
-      swal.fire("Please provide mobile number");
+    else if (this.account.mobileNumber.length<10 || this.account.mobileNumber.length>10){
+      swal.fire("Required length for mobile number is 10");
+    }
+    else if(!this.isNumber(this.account.mobileNumber)){
+      swal.fire("Mobile number should be number!")
+    }
+    else if(!this.isNumber(this.account.address.pinCode)){
+      swal.fire("Pincode should be number!")
     }
     else if (!this.account.address.houseNumber.trim()) {
       swal.fire("Please provide house number");

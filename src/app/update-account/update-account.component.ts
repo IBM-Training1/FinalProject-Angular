@@ -52,35 +52,53 @@ export class UpdateAccountComponent implements OnInit {
     }
   }
 
+
+  isNumber(n: any) {
+    return !isNaN(parseFloat(n)) && !isNaN(n - 0);
+  }
+
   update() {
-    const promise = this.accountService.updateAccount(this.account, this.account.id);
-    promise.subscribe((response: any) => {
-      console.log(response);
-      this.accountArray[response];
 
-      swal.fire({title: 'Do you want to update the changes?',
-      showDenyButton: true,
-      showCancelButton: true,
-      confirmButtonText: `Update`,
-      denyButtonText: `Don't Update`,
-    }).then((result) => {
+    if (this.account.mobileNumber.length < 10 || this.account.mobileNumber.length > 10) {
+      swal.fire("Required length for mobile number is 10");
+    }
+    else if (!this.isNumber(this.account.mobileNumber)) {
+      swal.fire("Mobile number should be number!")
+    }
+    else if (!this.isNumber(this.account.address.pinCode)) {
+      swal.fire("Pincode should be number!")
+    }
+    else {
+      const promise = this.accountService.updateAccount(this.account, this.account.id);
+      promise.subscribe((response: any) => {
+        console.log(response);
+        this.accountArray[response];
 
-      if (result.isConfirmed) {
-        swal.fire('Updated!', '', 'success')
-      } else if (result.isDenied) {
-        swal.fire('Changes are not updated', '', 'info')
-      }
-    })
-
-    },
-
-      error => {
-        console.log(error);
         swal.fire({
-          icon:"error",
-          text:"Update not possible"});
+          title: 'Do you want to update the changes?',
+          showDenyButton: true,
+          confirmButtonText: `Update`,
+          denyButtonText: `Don't Update`,
+        }).then((result) => {
 
-      })
+          if (result.isConfirmed) {
+            swal.fire('Updated!', '', 'success')
+          } else if (result.isDenied) {
+            swal.fire('Changes are not updated', '', 'info')
+          }
+        })
+
+      },
+
+        error => {
+          console.log(error);
+          swal.fire({
+            icon: "error",
+            text: "Update not possible"
+          });
+
+        })
+    }
   }
 
   ngOnInit(): void {

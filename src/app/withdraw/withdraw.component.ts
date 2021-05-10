@@ -52,79 +52,84 @@ export class WithdrawComponent implements OnInit {
   }
 
   update() {
-    if (this.account.number) {
+    if (this.account.status != "ACTIVE") {
+      Swal.fire("Your Account is not Active!")
+    }
+    else {
+      if (this.account.number) {
 
-      if (this.account.withdrawAmount) {
+        if (this.account.withdrawAmount) {
 
-        if (this.account.withdrawAmount != 0) {
+          if (this.account.withdrawAmount != 0) {
 
-          if (this.account.balance >= this.account.withdrawAmount) {
+            if (this.account.balance >= this.account.withdrawAmount) {
 
-            Swal.fire({
-              title: 'Confirm Withdraw?',
-              text: 'Are you sure about withdrawing Rs:' + this.account.withdrawAmount + '?',
-              showDenyButton: true,
-              confirmButtonText: `Withdraw`,
-              denyButtonText: `Cancel`,
-            }).then((result) => {
+              Swal.fire({
+                title: 'Confirm Withdraw?',
+                text: 'Are you sure about withdrawing Rs:' + this.account.withdrawAmount + '?',
+                showDenyButton: true,
+                confirmButtonText: `Withdraw`,
+                denyButtonText: `Cancel`,
+              }).then((result) => {
 
-              if (result.isConfirmed) {
+                if (result.isConfirmed) {
 
-                this.account.balance = this.account.balance - this.account.withdrawAmount;
-                const promise = this.accountService.updateAccount(this.account, this.account.id);
-                promise.subscribe((response: any) => {
-                  console.log(response);
-                  this.accountArray[response];
+                  this.account.balance = this.account.balance - this.account.withdrawAmount;
+                  const promise = this.accountService.updateAccount(this.account, this.account.id);
+                  promise.subscribe((response: any) => {
+                    console.log(response);
+                    this.accountArray[response];
 
+                    Swal.fire({
+                      title: 'Thank you for banking with us...!',
+                      text: "Amount Withdrawn : " + this.account.withdrawAmount + "\n Available Balance : " + this.account.balance,
+                      icon: 'success'
+                    });
+                  },
+                    error => {
+                      console.log(error);
+                      Swal.fire("Error occured..! \n Try Again");
+                    })
+
+                } else if (result.isDenied) {
                   Swal.fire({
-                    title: 'Thank you for banking with us...!',
-                    text: "Amount Withdrawn : " + this.account.withdrawAmount + "\n Available Balance : " + this.account.balance,
-                    icon: 'success'
+                    text: "Your transaction is Cancelled!!!",
+                    icon: 'error'
                   });
-                },
-                  error => {
-                    console.log(error);
-                    Swal.fire("Error occured..! \n Try Again");
-                  })
+                }
+              })
+            }
 
-              } else if (result.isDenied) {
-                Swal.fire({
-                  text: "Your transaction is Cancelled!!!",
-                  icon: 'error'
-                });
-              }
-            })
+            else {
+              Swal.fire({
+                text: "Enter an amount less than or equal to " + this.account.balance,
+                icon: 'warning',
+              });
+            }
           }
 
           else {
             Swal.fire({
-              text: "Enter an amount less than or equal to " + this.account.balance,
+              text: "Enter an amount greater than zero ",
               icon: 'warning',
             });
           }
         }
 
-        else{
+        else {
           Swal.fire({
-            text: "Enter an amount greater than zero ",
-            icon: 'warning',
-          });
+            text: "Please enter a valid amount to withdraw",
+            icon: 'warning'
+          })
         }
       }
 
       else {
         Swal.fire({
-          text: "Please enter a valid amount to withdraw",
-          icon: 'warning'
+          text: "Enter a valid account number",
+          icon: 'warning',
         })
       }
-    }
-
-    else {
-      Swal.fire({
-        text: "Enter a valid account number",
-        icon: 'warning',
-      })
     }
   }
 

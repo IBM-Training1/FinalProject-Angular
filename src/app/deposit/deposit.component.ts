@@ -53,90 +53,94 @@ export class DepositComponent implements OnInit {
     }
   }
 
-  isNumber(n:any) {
+  isNumber(n: any) {
     return !isNaN(parseFloat(n)) && !isNaN(n - 0);
   }
 
   deposit() {
-    if (this.isNumber(this.account.depositAmount)) {
+    if (this.account.status != "ACTIVE") {
+      Swal.fire("Your Account is not Active!")
+    }
+    else {
+      if (this.isNumber(this.account.depositAmount)) {
 
-      if (this.account.number) {
+        if (this.account.number) {
 
-        if (this.account.depositAmount) {
+          if (this.account.depositAmount) {
 
-          if (this.account.depositAmount != 0) {
+            if (this.account.depositAmount != 0) {
 
-            Swal.fire({
-              title: 'Confirm Deposit?',
-              text: 'Are you sure about depositing Rs:' + this.account.depositAmount + '?',
-              showDenyButton: true,
-              confirmButtonText: `Deposit`,
-              denyButtonText: `Cancel`,
-            }).then((result) => {
+              Swal.fire({
+                title: 'Confirm Deposit?',
+                text: 'Are you sure about depositing Rs:' + this.account.depositAmount + '?',
+                showDenyButton: true,
+                confirmButtonText: `Deposit`,
+                denyButtonText: `Cancel`,
+              }).then((result) => {
 
-              if (result.isConfirmed) {
+                if (result.isConfirmed) {
 
-                var a: number = +this.account.balance
-                var b: number = +this.account.depositAmount
-                a += b;
-                this.accountArray.balance = a;
+                  var a: number = +this.account.balance
+                  var b: number = +this.account.depositAmount
+                  a += b;
+                  this.accountArray.balance = a;
 
-                const promise = this.accountService.updateAccount(this.account, this.account.id);
-                promise.subscribe((response: any) => {
-                  console.log(response);
+                  const promise = this.accountService.updateAccount(this.account, this.account.id);
+                  promise.subscribe((response: any) => {
+                    console.log(response);
 
-                  this.accountArray[response];
+                    this.accountArray[response];
 
+                    Swal.fire({
+                      title: 'Thank you for banking with us...!',
+                      text: "Amount Deposited : " + this.account.depositAmount + "\n Available Balance : " + this.account.balance,
+                      icon: 'success'
+                    });
+                  },
+
+                    error => {
+                      console.log(error);
+                      Swal.fire("Error occured..! \n Try Again");
+
+                    })
+                } else if (result.isDenied) {
                   Swal.fire({
-                    title: 'Thank you for banking with us...!',
-                    text: "Amount Deposited : " + this.account.depositAmount + "\n Available Balance : " + this.account.balance,
-                    icon: 'success'
+                    text: "Your transaction is Cancelled!!!",
+                    icon: 'error'
                   });
-                },
+                }
+              })
+            }
 
-                  error => {
-                    console.log(error);
-                    Swal.fire("Error occured..! \n Try Again");
-
-                  })
-              } else if (result.isDenied) {
-                Swal.fire({
-                  text: "Your transaction is Cancelled!!!",
-                  icon: 'error'
-                });
-              }
-            })
+            else {
+              Swal.fire({
+                text: "Enter an amount greater than zero ",
+                icon: 'warning',
+              });
+            }
           }
-
           else {
             Swal.fire({
-              text: "Enter an amount greater than zero ",
-              icon: 'warning',
-            });
+              text: "Please enter a valid amount to withdraw",
+              icon: 'warning'
+            })
           }
         }
         else {
           Swal.fire({
-            text: "Please enter a valid amount to withdraw",
-            icon: 'warning'
+            text: "Enter a valid account number",
+            icon: 'warning',
           })
         }
-      }
-      else {
+      } else {
         Swal.fire({
-          text: "Enter a valid account number",
-          icon: 'warning',
+          text: "Amount should be a number",
+          icon: 'error',
         })
       }
-    }else {
-      Swal.fire({
-        text: "Amount should be a number",
-        icon: 'error',
-      })
     }
+
   }
-
-
   ngOnInit(): void {
   }
 
