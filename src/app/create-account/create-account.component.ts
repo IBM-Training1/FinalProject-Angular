@@ -59,7 +59,7 @@ export class CreateAccountComponent implements OnInit {
           text: "Your account number is :" + this.account.number,
           icon: 'success'
         })
-        this.accountArray.push(Object.assign({}, this.account));
+
       },
         error => {
           console.log(error);
@@ -70,14 +70,15 @@ export class CreateAccountComponent implements OnInit {
 
   generateUUID() {
     const generatedUuid1 = uuidv4();
-    const generatedUuid2 = uuidv4();
+    //const generatedUuid2 = uuidv4();
     const numericUuid1 = parseInt(generatedUuid1, 16);
-    const numericUuid2 = parseInt(generatedUuid2, 16) / 100;
-    const numericUuid3 = Math.round(numericUuid2)
-    const stringUuid1 = numericUuid1.toString();
-    const stringUuid2 = numericUuid3.toString();
+    //const numericUuid2 = parseInt(generatedUuid2, 16) ;
+    // const numericUuid3 = Math.round(numericUuid2)
+     const stringUuid1 = numericUuid1.toString();
+    const stringUuid2 = "88890";
 
-    this.account.number = stringUuid1 + stringUuid2;
+    // this.account.number = stringUuid1 + stringUuid2;
+    this.account.number=stringUuid2+stringUuid1;
   }
 
   ngOnInit(): void {
