@@ -1,4 +1,15 @@
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
+  <nav style="background-color: rgb(230, 227, 227);height: 25px;">
+
+    <a
+      class="nav-link ml-auto"
+      style="padding-top: 0px;float:right;padding-right: 23px;"
+      routerLink="/land"
+      routerLinkActive="active"
+      ><b>Back</b></a
+    >
+
+</nav>
   <div
     class="container-fluid bg-muted"
     style="padding-top: 10px; padding-bottom: 10px"
@@ -41,25 +52,27 @@
         <label for="uname" class="mb-2 mr-sm-2"><b>Account number : </b></label>
         <br />
         <input
+        style="margin-top: 5px;"
           type="text"
           [(ngModel)]="account.number"
           class="form-control mb-2 mr-sm-2"
           id="number"
         />
         <button
-          class="btn btn-info"
-          style="width: 45%"
+          class="btn btn-primary btn-block searchBtn"
+          style="width: 45%;margin-left: 50px;"
           (click)="searchByAccountNumber(account.number)"
         >
           Search by Account Number
         </button>
+        <div class="text-center">
+          <button class="btn btn-primary btn-block searchBtn" style="width:80px ; margin-left: 100px;" (click)="ngOnInit()">
+            Refresh
+          </button>
+        </div>
       </div>
 
-    <div class="text-center">
-      <button class="btn btn-info" style="width: 45%" (click)="ngOnInit()">
-        Get All Accounts
-      </button>
-    </div>
+
 
     <!-- table -->
 
@@ -75,6 +88,10 @@
           <td>Created Date</td>
           <td>Type</td>
           <td>Status</td>
+          <td>Mobile Number</td>
+          <td>Email Id</td>
+
+
         </thead>
 
         <tbody>
@@ -85,6 +102,10 @@
             <td>{{ account.createDate | date }}</td>
             <td>{{ account.type }}</td>
             <td>{{ account.status }}</td>
+            <td>{{ account.mobileNumber }}</td>
+            <td>{{ account.email }}</td>
+
+
           </tr>
         </tbody>
       </table>

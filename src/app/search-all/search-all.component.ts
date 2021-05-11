@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Account } from '../Account';
 import { AccountService } from '../account.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-search-all',
@@ -12,25 +13,29 @@ export class SearchAllComponent implements OnInit {
   account:Account=new Account();
 
   constructor(private accountService: AccountService) { }
-
+//----------------getting details of employee using account number-----------
   searchByAccountNumber(number: any) {
-    const observable = this.accountService.searchByNumber(number);
+    const observable = this.accountService.getAccountbyNumber(number);
     observable.subscribe(response => {
       console.log(response);
       this.accountArray = [response];
       if (this.accountArray[0] == undefined) {
-        alert("No Account found")
+        swal.fire({
+          icon:"error",
+          text:"No Account found for account number : "+ number})
 
       } else {
         alert("Displaying..")
       }
     },
       error => {
-        alert("Error Occured. Not able to search..");
+        swal.fire({
+          icon:"error",
+          text:"Error Occured. Not able to search"});
       })
 
   }
-
+//-------------fetch all the accounts details---------------
   ngOnInit(): void {
     const observable = this.accountService.getAllAccounts();
     observable.subscribe(response => {
